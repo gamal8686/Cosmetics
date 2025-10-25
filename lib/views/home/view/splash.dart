@@ -1,8 +1,10 @@
 import 'dart:async';
 
-import 'package:amar_bakr/views/auth/appImage.dart';
-import 'package:amar_bakr/views/auth/goto.dart';
+import 'package:amar_bakr/core/app/appImage.dart';
+import 'package:amar_bakr/core/helper/goto.dart';
 import 'package:amar_bakr/views/home/view/welcome.dart';
+
+
 import 'package:flutter/material.dart';
 
 class Splashviews extends StatefulWidget {
@@ -15,13 +17,12 @@ class Splashviews extends StatefulWidget {
 class _SplashviewsState extends State<Splashviews> {
   @override
   void initState() {
-    Timer(Duration(seconds: 1), () => goto(onpordengview()));
+    Timer(Duration(seconds: 3), () => goto(onpordengview()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD9D9D9),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

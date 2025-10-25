@@ -1,7 +1,5 @@
-import 'dart:io';
-
-import 'package:amar_bakr/views/auth/appImage.dart';
-import 'package:amar_bakr/views/auth/appInpot.dart';
+import 'package:amar_bakr/core/app/appImage.dart';
+import 'package:amar_bakr/core/app/appInpot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

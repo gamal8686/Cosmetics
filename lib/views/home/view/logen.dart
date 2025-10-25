@@ -1,7 +1,10 @@
-import 'package:amar_bakr/views/auth/appImage.dart';
-import 'package:amar_bakr/views/auth/appformfield.dart';
+import 'package:amar_bakr/core/app/appImage.dart';
+import 'package:amar_bakr/core/app/appformfield.dart';
+import 'package:amar_bakr/core/helper/goto.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+import 'Createaccount.dart';
+import 'homeview.dart';
 
 class logenview extends StatefulWidget {
   const logenview({super.key});
@@ -52,7 +55,7 @@ class _logenviewState extends State<logenview> {
                   border: Border.all(color: Colors.grey), // هنا الإطار
                 ),
                 child: DropdownButtonHideUnderline(
-                  // لإخفاء الخط اللي تحت
+               
                   child: DropdownButton<int>(
                     hint: Text('+2'),
                     items: itemss,
@@ -102,7 +105,9 @@ class _logenviewState extends State<logenview> {
             ),
 
             color: Color(0xffD75D72),
-            onPressed: () {},
+            onPressed: () {
+              goto(Homeview());
+            },
             child: Text('Login'),
           ),
           SizedBox(height: 15),
@@ -112,7 +117,9 @@ class _logenviewState extends State<logenview> {
               SizedBox(width: 30),
               Text('  Don’t have an account?'),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  goto(CreateAccount());
+                },
                 child: Text('Register', style: TextStyle(color: Colors.red)),
               ),
             ],

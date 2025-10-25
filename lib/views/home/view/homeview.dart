@@ -1,11 +1,11 @@
-import 'package:amar_bakr/views/auth/appImage.dart';
-import 'package:amar_bakr/views/home/page/Categories.dart';
-import 'package:amar_bakr/views/home/page/homPage.dart';
-import 'package:amar_bakr/views/home/page/idpage.dart';
-import 'package:amar_bakr/views/home/page/myCartpage.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../page/categories.dart';
+import '../page/homPage.dart';
+import '../page/idpage.dart';
+import '../page/myCartpage.dart';
 
 class Homeview extends StatefulWidget {
   const Homeview({super.key});

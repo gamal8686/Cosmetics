@@ -1,5 +1,4 @@
-import 'package:amar_bakr/views/auth/appImage.dart';
-import 'package:amar_bakr/views/auth/appInpot.dart';
+import 'package:amar_bakr/core/app/appImage.dart';
 import 'package:flutter/material.dart';
 
 class Mycardpage extends StatelessWidget {
@@ -8,6 +7,8 @@ class Mycardpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      // left: false,
+      // right: false,
       child: Scaffold(
         appBar: AppBar(
           title: Center(
@@ -22,7 +23,7 @@ class Mycardpage extends StatelessWidget {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: AppImage(path: 'mycar.svg'),
             ),
           ],
@@ -33,7 +34,7 @@ class Mycardpage extends StatelessWidget {
             children: [
               SizedBox(height: 24),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(5.0),
                 child: Column(
                   children: [
                     SizedBox(height: 8),
@@ -51,15 +52,13 @@ class Mycardpage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 0),
+              SizedBox(height: 5),
 
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: _items(),
-                ),
+                itemBuilder: (context, index) =>
+                    Padding(padding: const EdgeInsets.all(10), child: _items()),
                 separatorBuilder: (context, index) => Divider(),
                 itemCount: 12,
               ),
@@ -71,13 +70,23 @@ class Mycardpage extends StatelessWidget {
   }
 }
 
-_items() {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Row(
+class _items extends StatefulWidget {
+  const _items({super.key});
+
+  @override
+  State<_items> createState() => _itemsState();
+}
+
+class _itemsState extends State<_items> {
+  int counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
+          alignment: Alignment.topLeft,
           children: [
             ClipRRect(
               borderRadius: BorderRadiusGeometry.circular(8),
@@ -88,12 +97,12 @@ _items() {
                     'https://www.instyle.com/thmb/rLPYCp3POuu06E6t2k_vXQt-MpA=/fit-in/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/rare-beauty-by-selena-gomez-brow-harmony-flexible-lifting-5e251db69f69400eb8f67f9dcdb72630.jpg',
               ),
             ),
-            Positioned(top: 4, left: 4, child: AppImage(path: 'delete.svg')),
+            AppImage(path: 'delete.svg',height: 20,width:
+              20,),
           ],
         ),
-        SizedBox(width: 5),
-
-        Stack(
+        SizedBox(width: 8),
+        Column(
           children: [
             Text.rich(
               style: TextStyle(
@@ -116,21 +125,38 @@ _items() {
                 ],
               ),
             ),
-            Positioned(
-              right: 0,
-              top: 50,
+            Align(
+              alignment: Alignment.centerRight,
               child: Container(
-                height: 42,
-                width: 142,
                 decoration: BoxDecoration(
                   border: Border.all(color: Color(0xff8E8EA9)),
                   borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        counter--;
+                        setState(() {});
+                      },
+                      child: AppImage(path: 'Group+.svg'),
+                    ),
+                    TextButton(onPressed: () {}, child: Text('$counter')),
+                    TextButton(
+                      onPressed: () {
+                        counter++;
+                        setState(() {});
+                      },
+                      child: AppImage(path: 'Group-.svg'),
+                    ),
+                  ],
                 ),
               ),
             ),
           ],
         ),
       ],
-    ),
-  );
+    );
+  }
 }

@@ -1,8 +1,10 @@
-import 'package:amar_bakr/views/auth/appImage.dart';
-import 'package:amar_bakr/views/auth/goto.dart';
-import 'package:amar_bakr/views/home/view/logen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../core/app/appImage.dart';
+import '../../../core/helper/goto.dart';
+
+import '../view/logen.dart';
 
 class onpordengview extends StatefulWidget {
   const onpordengview({super.key});
@@ -13,13 +15,15 @@ class onpordengview extends StatefulWidget {
 
 class _onpordengviewState extends State<onpordengview> {
   int counter = 0;
-  List<String> image = [
-    'assets/images/onpordeng1.png',
-    'assets/images/onporning2.png',
-    'assets/images/onporning3.png',
+  List image = [
+'onpordeng1.png'
+    ,  'onporning2.png'
+    ,
+     'onporning3.png'
+    ,
   ];
-  List<String> Descrbshen = ['WELCOME', 'SEARCH & PICK', 'PUCH NOTIFICATIONS '];
-  List<String> Test = [
+  List Descrbshen = ['WELCOME', 'SEARCH & PICK', 'PUCH NOTIFICATIONS '];
+  List Test = [
     'Makeup has the power to transform your mood and empowers you to be a more confident person.',
     'We have dedicated set of products and routines hand picked for every skin type.',
     'Allow notifications for new makeup & cosmetics offers.',
@@ -34,7 +38,7 @@ class _onpordengviewState extends State<onpordengview> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(image[counter]),
+AppImage(path:image[counter]),
               SizedBox(height: 25),
               Text(
                 Descrbshen[counter],
