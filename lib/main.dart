@@ -1,6 +1,9 @@
 import 'package:amar_bakr/core/helper/goto.dart';
+import 'package:amar_bakr/views/home/page/idpage.dart';
+import 'package:amar_bakr/views/home/view/Checkout.dart';
 import 'package:amar_bakr/views/home/view/Createaccount.dart';
 import 'package:amar_bakr/views/home/view/VerifyCode.dart';
+import 'package:amar_bakr/views/home/view/homeview.dart';
 
 import 'package:flutter/material.dart';
 
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         200: primary.withOpacity(.3),
         300: primary.withOpacity(.4),
         400: primary.withOpacity(.5),
-        500: primary, // اللون الرئيسي
+        500: primary,
         600: primary.withOpacity(.7),
         700: primary.withOpacity(.8),
         800: primary.withOpacity(.9),
@@ -62,7 +65,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xffD9D9D9),
       ),
       title: 'Cosmetics',
-      home: CreateAccount(),
+      home: CheckoutView(),
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );
