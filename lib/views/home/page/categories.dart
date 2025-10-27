@@ -24,7 +24,7 @@ class Categorypage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 25),
-              AppInpot(),
+              AppInpot(path:  'assets/svg/search.svg',),
               SizedBox(height: 31),
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),

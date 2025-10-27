@@ -17,7 +17,7 @@ class Homepage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 20),
-                AppInpot(),
+                AppInpot(path:  'assets/svg/search.svg',),
                 SizedBox(height: 13),
                 Stack(
                   alignment: Alignment.center,

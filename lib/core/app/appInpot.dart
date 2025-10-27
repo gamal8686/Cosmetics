@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppInpot extends StatelessWidget {
-  const AppInpot({super.key});
+  final String path;
+  const AppInpot({super.key, required this.path});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class AppInpot extends StatelessWidget {
         suffixIcon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           child: SvgPicture.asset(
-            'assets/svg/search.svg',
+           path,
             height: 17,
             width: 17,
           ),

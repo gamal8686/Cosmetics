@@ -1,4 +1,5 @@
 import 'package:amar_bakr/core/helper/goto.dart';
+import 'package:amar_bakr/views/home/page/categories.dart';
 import 'package:amar_bakr/views/home/page/idpage.dart';
 import 'package:amar_bakr/views/home/view/Checkout.dart';
 import 'package:amar_bakr/views/home/view/Createaccount.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         filledButtonTheme: FilledButtonThemeData(
           
           style: FilledButton.styleFrom(
-            fixedSize: Size(270, 65),
+           // fixedSize: Size(270, 65),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(60), // 🔹 الزوايا الدائرية
             ),
