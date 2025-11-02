@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:amar_bakr/core/app/appImage.dart';
+import 'package:amar_bakr/core/app/app_Image.dart';
 import 'package:amar_bakr/core/helper/goto.dart';
 import 'package:amar_bakr/views/home/view/welcome.dart';
 

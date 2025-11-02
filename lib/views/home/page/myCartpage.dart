@@ -1,4 +1,4 @@
-import 'package:amar_bakr/core/app/appImage.dart';
+import 'package:amar_bakr/core/app/app_Image.dart';
 import 'package:flutter/material.dart';
 
 class Mycardpage extends StatelessWidget {

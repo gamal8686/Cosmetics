@@ -7,14 +7,14 @@ import '../page/homPage.dart';
 import '../page/idpage.dart';
 import '../page/myCartpage.dart';
 
-class Homeview extends StatefulWidget {
-  const Homeview({super.key});
+class OnBordenge extends StatefulWidget {
+  const OnBordenge({super.key});
 
   @override
-  State<Homeview> createState() => _HomeviewState();
+  State<OnBordenge> createState() => _HomeviewState();
 }
 
-class _HomeviewState extends State<Homeview> {
+class _HomeviewState extends State<OnBordenge> {
   List<_model> pages = [
     _model(image: 'assets/svg/home.svg', page: Homepage()),
     _model(image: 'assets/svg/nat.svg', page: Categorypage()),

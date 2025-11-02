@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/app/appImage.dart';
+import '../../../core/app/app_Image.dart';
 import '../../../core/helper/goto.dart';
 
 import '../view/logen.dart';

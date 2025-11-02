@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 
 class AppImage extends StatelessWidget {
   final String path;
@@ -40,12 +41,23 @@ class AppImage extends StatelessWidget {
         width: width,
         errorBuilder: (context, error, stackTrace) => Text('404'),
       );
-    }if(path.endsWith('jpg')){return Image.asset(
-      'assets/images/$path',
-      height: height,
-      width: width,
-      errorBuilder: (context, error, stackTrace) => Text('404'),
-    );}else return Text('22');
-
+    }
+    if (path.endsWith('jpg')) {
+      return Image.asset(
+        'assets/images/$path',
+        height: height,
+        width: width,
+        errorBuilder: (context, error, stackTrace) => Text('404'),
+      );
+    }
+    if (path.endsWith('lottes')) {
+      return Lottie.asset(
+        'assets/lottes/$path',
+        height: height,
+        width: width,
+        errorBuilder: (context, error, stackTrace) => Text('404'),
+      );
+    } else
+      return Text('22');
   }
 }

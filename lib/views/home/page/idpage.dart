@@ -1,8 +1,8 @@
-import 'package:amar_bakr/core/app/appImage.dart';
+import 'package:amar_bakr/core/app/app_Image.dart';
 import 'package:amar_bakr/core/helper/goto.dart';
 import 'package:flutter/material.dart';
 
-import '../view/Checkout.dart';
+import '../view/check_out.dart';
 
 class idpage extends StatelessWidget {
   const idpage({super.key});
