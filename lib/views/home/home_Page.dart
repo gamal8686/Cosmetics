@@ -1,7 +1,10 @@
-import 'package:amar_bakr/core/app/app_Image.dart';
-import 'package:amar_bakr/core/app/app_inpot.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../core/ui/app_Image.dart';
+import '../../core/ui/app_inpot.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -12,33 +15,33 @@ class Homepage extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(8.0.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 AppInpot(path:  'assets/svg/search.svg',),
-                SizedBox(height: 13),
+                SizedBox(height: 13.h),
                 Stack(
                   alignment: Alignment.center,
                   children: [
                     Image.network(
                       'https://tse1.mm.bing.net/th/id/OIP.kR2OWGKMJyYRyZJr_NSWrAHaD4?cb=12ucfimg=1&w=1200&h=630&rs=1&pid=ImgDetMain&o=7&rm=3',
                       fit: BoxFit.cover,
-                      height: 320,
+                      height: 320.h,
                       width: double.infinity,
                     ),
                     Container(
-                      height: 151,
+                      height: 151.h,
                       width: double.infinity,
                       color: Color(0xffE9DCD3).withValues(alpha: .5),
                     ),
 
-                    SizedBox(height: 5),
+                    SizedBox(height: 5.h),
                     Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(4.0),
+                          padding:  EdgeInsets.all(4.0.r),
                           child: Row(
                             children: [
                               Expanded(
@@ -46,23 +49,23 @@ class Homepage extends StatelessWidget {
                                   '50% OFF DISCOUNT\nCUPON CODE : 125865',
                                 ),
                               ),
-                              SizedBox(width: 85),
+                              SizedBox(width: 85.w),
                               SvgPicture.asset(
                                 'assets/svg/offer.svg',
-                                height: 60,
-                                width: 60,
+                                height: 60.h,
+                                width: 60.w,
                               ),
                             ],
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(4.0),
+                          padding:  EdgeInsets.all(4.0.r),
                           child: Row(
                             children: [
                               Expanded(
                                 child: SvgPicture.asset('assets/svg/offer.svg'),
                               ),
-                              SizedBox(width: 120),
+                              SizedBox(width: 120.w),
                               Text('50% OFF DISCOUNT\nCUPON CODE : 125865'),
                             ],
                           ),
@@ -71,19 +74,19 @@ class Homepage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Top rated products',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                       color: Color(0xff434C6D),
                     ),
                   ),
                 ),
-                SizedBox(height: 14),
+                SizedBox(height: 14.h),
                 Container(
                   child: GridView.builder(
                     itemCount: 10,
@@ -115,7 +118,7 @@ items() {
       color: Color(0xffD9D9D9),
       boxShadow: [
         BoxShadow(
-          blurRadius: 10,
+          blurRadius: 10.r,
           color: Color(0xff00000040).withValues(alpha: .25),
           offset: Offset(0, 1),
           blurStyle: BlurStyle.normal,
@@ -123,7 +126,7 @@ items() {
       ],
     ),
     child: Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(8.0.r),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -131,29 +134,29 @@ items() {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
             child: AppImage(
               fit: BoxFit.cover,
-              height: 150,
+              height: 150.h,
               width: double.infinity,
               path:
                   'https://www.elfcosmetics.com/dw/image/v2/BBXC_PRD/on/demandware.static/-/Sites-elf-master/default/dwec39891d/2021/12142020_HydratingCore-LipShine_COMP_V2_IGF.jpg?sw=425&q=90',
             ),
           ),
-          SizedBox(height: 11),
+          SizedBox(height: 11.h),
           Expanded(
             child: Text(
               'Athe Red lipstick',
               style: TextStyle(
                 fontFamily: 'Montserrat',
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
-          SizedBox(height: 11),
+          SizedBox(height: 11.h),
           Expanded(
             child: Text(
               '\$44.99',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Montserrat',
               ),

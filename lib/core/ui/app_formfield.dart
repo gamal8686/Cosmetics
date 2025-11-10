@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Appformfild extends StatefulWidget {
+class AppFormfild extends StatefulWidget {
   final String? labol;
   final bool filled;
   final Color? fillColor;
   final bool suffixIcon;
 final String? hint;
-  const Appformfild({
+  const AppFormfild({
     super.key,
    this.labol,
     required this.filled,
@@ -15,10 +16,10 @@ final String? hint;
   });
 
   @override
-  State<Appformfild> createState() => _AppformfildState();
+  State<AppFormfild> createState() => _AppformfildState();
 }
 
-class _AppformfildState extends State<Appformfild> {
+class _AppformfildState extends State<AppFormfild> {
   bool iscan = false;
 
   @override
@@ -34,7 +35,7 @@ labelText: widget.labol,
         fillColor: widget.fillColor,
         filled: widget.filled,
         hintText:widget.hint,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
         suffixIcon: widget.suffixIcon
             ? IconButton(
                 icon: Icon(iscan ? Icons.visibility : Icons.visibility_off),

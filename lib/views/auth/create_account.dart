@@ -1,0 +1,59 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../core/ui/app_Image.dart';
+import '../../core/ui/app_buttomnavigatortext.dart';
+import '../../core/ui/app_filledbuttom.dart';
+import '../../core/ui/app_inpot.dart';
+
+
+class CreateAccount extends StatefulWidget {
+  const CreateAccount({super.key});
+
+  @override
+  State<CreateAccount> createState() => _CreateAccountState();
+}
+
+class _CreateAccountState extends State<CreateAccount> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+
+        padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AppImage(path: 'splash.png', height: 65.h, width: 65.w),
+            SizedBox(height: 40.h),
+            Text(
+              'Create Account',
+              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w700),
+            ),
+            SizedBox(height: 50.h),
+
+            AppInpot(labol: 'Your Name'),
+            AppInpot(labol: 'Phone Number', drobDowen: true),
+            AppInpot(labol: 'Create your password',ispassword: true,),
+            AppInpot(labol: 'Confirm password',ispassword: true,),
+            SizedBox(height: 90.h),
+            Center(
+              child: AppFieldButtom(
+                  width: 270.w,
+                  onPressed: () {}, text: 'Next'),
+            ), SizedBox(height: 80.h),
+            Padding(
+              padding:  EdgeInsets.only(left: 80.r),
+              child: AppButtomNavigatorTest(text: 'Have an account?',textButtom: 'Login',),
+            )
+
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+

@@ -1,5 +1,7 @@
-import 'package:amar_bakr/core/app/app_Image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../core/ui/app_Image.dart';
 
 class Mycardpage extends StatelessWidget {
   const Mycardpage({super.key});
@@ -7,8 +9,7 @@ class Mycardpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      // left: false,
-      // right: false,
+
       child: Scaffold(
         appBar: AppBar(
           title: Center(
@@ -16,14 +17,14 @@ class Mycardpage extends StatelessWidget {
               'My Cart',
               style: TextStyle(
                 color: Color(0xff434C6D),
-                fontSize: 24,
+                fontSize: 24.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding:  EdgeInsets.all(10.0.r),
               child: AppImage(path: 'mycar.svg'),
             ),
           ],
@@ -32,19 +33,19 @@ class Mycardpage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 24),
+              SizedBox(height: 24.h),
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding:  EdgeInsets.all(5.0.r),
                 child: Column(
                   children: [
-                    SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'You have 4 products in your cart',
                         style: TextStyle(
                           color: Color(0xff434C6D).withValues(alpha: .55),
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -52,13 +53,13 @@ class Mycardpage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 5.h),
 
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (context, index) =>
-                    Padding(padding: const EdgeInsets.all(10), child: _items()),
+                    Padding(padding:  EdgeInsets.all(10.r), child: _items()),
                 separatorBuilder: (context, index) => Divider(),
                 itemCount: 12,
               ),
@@ -71,7 +72,7 @@ class Mycardpage extends StatelessWidget {
 }
 
 class _items extends StatefulWidget {
-  const _items({super.key});
+  const _items();
 
   @override
   State<_items> createState() => _itemsState();
@@ -92,21 +93,21 @@ class _itemsState extends State<_items> {
               borderRadius: BorderRadiusGeometry.circular(8),
               child: AppImage(
                 fit: BoxFit.cover,
-                height: 100,
+                height: 100.h,
                 path:
                     'https://www.instyle.com/thmb/rLPYCp3POuu06E6t2k_vXQt-MpA=/fit-in/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/rare-beauty-by-selena-gomez-brow-harmony-flexible-lifting-5e251db69f69400eb8f67f9dcdb72630.jpg',
               ),
             ),
-            AppImage(path: 'delete.svg',height: 20,width:
-              20,),
+            AppImage(path: 'delete.svg',height: 20.h,width:
+              20.w,),
           ],
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         Column(
           children: [
             Text.rich(
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
                 color: Color(0xff3B4569),
               ),
@@ -116,7 +117,7 @@ class _itemsState extends State<_items> {
                   TextSpan(
                     text: 'Ultra rich mascara for lashes\n\n',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w500,
                       color: Color(0xff3B4569).withValues(alpha: .73),
                     ),
@@ -130,7 +131,7 @@ class _itemsState extends State<_items> {
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Color(0xff8E8EA9)),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

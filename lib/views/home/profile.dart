@@ -1,8 +1,9 @@
-import 'package:amar_bakr/core/app/app_Image.dart';
-import 'package:amar_bakr/core/helper/goto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../view/check_out.dart';
+import '../../core/logic/helper_methods.dart';
+import '../../core/ui/app_Image.dart';
+import '../check_out.dart';
 
 class idpage extends StatelessWidget {
   const idpage({super.key});
@@ -14,7 +15,7 @@ class idpage extends StatelessWidget {
         children: [
           Container(color: Theme.of(context).primaryColor),
           Container(
-            height: 152,
+            height: 152.h,
             width: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -31,49 +32,48 @@ class idpage extends StatelessWidget {
             top: 105,
             right: 160,
             child: CircleAvatar(
-              //   backgroundColor: Colors.red,
               maxRadius: 45,
               child: AppImage(path: 'ellipse.png'),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Positioned(
             right: 140,
             top: 220,
             child: Text(
               'Sara Samer Talaat',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
                 color: Color(0xff434C6D),
               ),
             ),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 40.h),
 
           ListView.separated(
-            padding: EdgeInsets.symmetric(vertical: 250, horizontal: 10),
+            padding: EdgeInsets.symmetric(vertical: 250.h, horizontal: 10.w),
             itemBuilder: (context, index) => item(index: index),
             separatorBuilder: (context, index) => Divider(),
             itemCount: model.length,
           ),
-          SizedBox(width: 34),
+          SizedBox(width: 34.w),
           Positioned(
             bottom: 300,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.r),
               child: Row(
                 children: [
                   AppImage(path: 'Vector.svg'),
-                  SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   TextButton(
                     onPressed: () {
-                goto(CheckoutView());
+                goto(CheckOutView());
                     },
 
                      child: Text('Logout',
                        style: TextStyle(
-                         fontSize: 14,
+                         fontSize: 14.sp,
                          fontWeight: FontWeight.w600,
                          color: Color(0xffCD0F0F))))
 
@@ -99,11 +99,11 @@ class item extends StatelessWidget {
       child: Row(
         children: [
           model[index].labol,
-          SizedBox(width: 3),
+          SizedBox(width: 3.w),
           Text(
             'data',
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w600,
               color: Color(0xff434C6D),
             ),

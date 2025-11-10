@@ -1,9 +1,11 @@
-import 'package:amar_bakr/core/app/app_Image.dart';
-import 'package:amar_bakr/core/app/app_inpot.dart';
-import 'package:flutter/material.dart';
 
-class CheckoutView extends StatelessWidget {
-  const CheckoutView({super.key});
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../core/ui/app_Image.dart';
+
+class CheckOutView extends StatelessWidget {
+  const CheckOutView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,58 +21,58 @@ class CheckoutView extends StatelessWidget {
             child: Text(
               'Checkout',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 24.sp,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff434C6D),
               ),
             ),
           ),
-          toolbarHeight: 71,
+          toolbarHeight: 71.h,
         ),
         body: Container(
           decoration: BoxDecoration(
-            color: Color(0xff29D3DA1C).withValues(alpha: 0.11),
+            color: Color(0xff29d3da1c).withValues(alpha: 0.11),
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20.r),
+              topRight: Radius.circular(20.r),
             ),
           ),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding:  EdgeInsets.all(18.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Delivery to',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff434C6D),
                   ),
                 ),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
-                    height: 84,
-                    width: 350,
+                    height: 84.h,
+                    width: 350.w,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        AppImage(path: 'map.png', height: 60, width: 100),
-                        SizedBox(width: 10),
+                        AppImage(path: 'map.png', height: 60.h, width: 100.w),
+                        SizedBox(width: 10.w),
                         Text.rich(
                           TextSpan(
                             children: [
                               TextSpan(
                                 text: 'Home\n',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xff434C6D),
                                 ),
@@ -78,7 +80,7 @@ class CheckoutView extends StatelessWidget {
                               TextSpan(
                                 text: 'Mansoura, 14 Porsaid St',
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 10.sp,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xff8E8EA9),
                                 ),
@@ -86,7 +88,7 @@ class CheckoutView extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(width: 33),
+                        SizedBox(width: 33.w),
                         TextButton(
                           onPressed: () {},
                           child: AppImage(path: 'DropdownButton.svg'),
@@ -96,30 +98,30 @@ class CheckoutView extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 50),
+                SizedBox(height: 50.h),
                 Text(
                   'Payment Method',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff434C6D),
                   ),
                 ),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
-                    height: 57,
-                    width: 350,
+                    height: 57.h,
+                    width: 350.w,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0.r),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          AppImage(path: 'visia.svg', height: 32, width: 20),
+                          AppImage(path: 'visia.svg', height: 32.h, width: 20.w),
                           Spacer(),
                           Text('********'),
                           Spacer(),
@@ -132,27 +134,27 @@ class CheckoutView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 12.h),
 
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
-                    height: 57,
-                    width: 350,
+                    height: 57.h,
+                    width: 350.w,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding:  EdgeInsets.all(8.0.r),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          AppImage(path: 'offer.svg', height: 32, width: 20),
+                          AppImage(path: 'offer.svg', height: 32.h, width: 20.w),
                           Spacer(),
                           Text(
                             'Add vaucher',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w600,
                               color: Color(0xff434C6D),
                             ),
@@ -163,7 +165,7 @@ class CheckoutView extends StatelessWidget {
                             child: Text(
                               'Apply',
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xffFFFFFF),
                               ),
@@ -174,31 +176,31 @@ class CheckoutView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 25.h),
                 Center(
                   child: Text(
                     '---' * 24,
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.black,
                     ),
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 25.h),
                 Text(
                   '- REVIEW PAYMENT',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                     color: Color(0xff434C6D),
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 25.h),
                 Text(
                   'PAYMENT SUMMARY',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w400,
                     color: Color(0xff434C6D),
                   ),
@@ -208,7 +210,7 @@ class CheckoutView extends StatelessWidget {
                     Text(
                       'Subtotal',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w400,
                         color: Color(0xff434C6D),
                       ),
@@ -217,20 +219,20 @@ class CheckoutView extends StatelessWidget {
                     Text(
                       '16.100 EGP',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w500,
                         color: Color(0xff434C6D),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 Row(
                   children: [
                     Text(
                       'SHIPPING FEES',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w400,
                         color: Color(0xff434C6D),
                       ),
@@ -239,24 +241,24 @@ class CheckoutView extends StatelessWidget {
                     Text(
                       'TO BE CALCULATED',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w500,
                         color: Color(0xff434C6D),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 25.h),
                 Divider(
-                  height: 0.2,
+                  height: 0.2.h,
                   color: Color(0xff73B9BB),
-                ),                SizedBox(height: 30),
+                ),                SizedBox(height: 30.h),
                 Row(
                   children: [
                     Text(
                       'TOTAL + VAT',
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w400,
                         color: Color(0xff434C6D),
                       ),
@@ -265,20 +267,20 @@ class CheckoutView extends StatelessWidget {
                     Text(
                       '16.100 EGP',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w500,
                         color: Color(0xff434C6D),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 30.h),
 
                 Center(
                   child: FilledButton(
                       style: FilledButton.styleFrom(
                         fixedSize:Size(230, 60) ,
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), // 🔹 تصغير الحواف الداخلية
+                        padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h), // 🔹 تصغير الحواف الداخلية
                        // minimumSize: const Size(90, 40),
                       ),
                       onPressed: () {  },
@@ -287,11 +289,11 @@ class CheckoutView extends StatelessWidget {
                     children: [
                       AppImage(
 
-                        path: 'myCard.svg',height: 19,width: 18,),
-                      SizedBox(width: 10,),
+                        path: 'myCard.svg',height: 19.h,width: 18.w,),
+                      SizedBox(width: 10.w,),
                       Text('ORDER',
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
                           color: Color(0xffDBF8F9),
                         ),)

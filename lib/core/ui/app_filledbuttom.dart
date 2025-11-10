@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppFieldButtom extends StatelessWidget {
   final String text;
@@ -10,11 +11,11 @@ final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width:width,
       child: FilledButton(
 
-          onPressed:onPressed, child: Text(text,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),)),
+          onPressed:onPressed, child: Text(text,style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600),)),
     );
   }
 }

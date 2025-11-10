@@ -1,6 +1,7 @@
-import 'package:amar_bakr/core/app/app_Image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_Image.dart';
 
 class AppInpot extends StatefulWidget {
   final String? path, labol;
@@ -30,28 +31,28 @@ class _AppInpotState extends State<AppInpot> {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 16),
+        padding:  EdgeInsets.only(bottom: 16.r),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (widget.drobDowen)
               Padding(
-                padding: EdgeInsetsDirectional.only(end: 10),
+                padding: EdgeInsetsDirectional.only(end: 10.r),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
                     ).inputDecorationTheme.enabledBorder!.borderSide.color,
                     border: Border.all(),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
                   child: DropdownButton<int>(
                     icon: Padding(
-                      padding: EdgeInsetsDirectional.only(start: 4),
+                      padding: EdgeInsetsDirectional.only(start: 4.r),
                       child: AppImage(path: 'DropdownButton.svg'),
                     ),
 
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
                     value: selectedCauntryCod,
                     items: list
                         .map(
@@ -72,9 +73,9 @@ class _AppInpotState extends State<AppInpot> {
                 obscureText: widget.ispassword&&ishedin?true:false,
                 decoration: InputDecoration(
                   suffixIcon: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 12,
+                    padding:  EdgeInsets.symmetric(
+                      horizontal: 12.w,
+                      vertical: 12.h,
                     ),
                     child: widget.ispassword? IconButton(
                       onPressed: () {
@@ -86,7 +87,7 @@ class _AppInpotState extends State<AppInpot> {
                     ):null
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
 
                   labelText: widget.labol,

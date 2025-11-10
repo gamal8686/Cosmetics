@@ -1,6 +1,9 @@
-import 'package:amar_bakr/core/app/app_Image.dart';
-import 'package:amar_bakr/core/app/app_inpot.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../core/ui/app_Image.dart';
+import '../../core/ui/app_inpot.dart';
 
 class Categorypage extends StatelessWidget {
   const Categorypage({super.key});
@@ -10,7 +13,7 @@ class Categorypage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.all(8.0.r),
           child: ListView(
             children: [
               Center(
@@ -18,14 +21,14 @@ class Categorypage extends StatelessWidget {
                   'Categories',
                   style: TextStyle(
                     color: Color(0xff434C6D),
-                    fontSize: 24,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 25.h),
               AppInpot(path:  'assets/svg/search.svg',),
-              SizedBox(height: 31),
+              SizedBox(height: 31.h),
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -53,17 +56,17 @@ _item() {
               'https://tse3.mm.bing.net/th/id/OIP.CkwDRWW9BKHYSNhnUAqADwHaD_?cb=12ucfimg=1&w=520&h=280&rs=1&pid=ImgDetMain&o=7&rm=3',
         ),
       ),
-      SizedBox(width: 12),
+      SizedBox(width: 12.w),
       Text(
         'Bundles',
         style: TextStyle(
-          fontSize: 14,
+          fontSize: 14.sp,
           fontWeight: FontWeight.w600,
           color: Color(0xff434C6D),
           fontFamily: 'Montserrat',
         ),
       ),
-      SizedBox(width: 204),
+      SizedBox(width: 204.w),
       AppImage(path: 'Vector.png'),
     ],
   );

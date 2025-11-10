@@ -19,7 +19,7 @@ class AppImage extends StatelessWidget {
   Widget build(BuildContext context) {
     if (path.startsWith('http')) {
       return Image.network(
-        '$path',
+        path,
         height: height,
         width: width,
         fit: fit,
@@ -57,7 +57,8 @@ class AppImage extends StatelessWidget {
         width: width,
         errorBuilder: (context, error, stackTrace) => Text('404'),
       );
-    } else
+    } else {
       return Text('22');
+    }
   }
 }

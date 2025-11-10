@@ -1,11 +1,14 @@
 import 'dart:async';
 
-import 'package:amar_bakr/core/app/app_Image.dart';
-import 'package:amar_bakr/core/helper/goto.dart';
-import 'package:amar_bakr/views/home/view/welcome.dart';
+
+import 'package:amar_bakr/views/home/view.dart';
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../core/logic/helper_methods.dart';
+import '../core/ui/app_Image.dart';
 
 class Splashviews extends StatefulWidget {
   const Splashviews({super.key});
@@ -27,9 +30,9 @@ class _SplashviewsState extends State<Splashviews> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AppImage(path: 'splash.png'),
-            SizedBox(height: 16),
-            AppImage(path: 'Avon.png'),
+            AppImage(path: 'logo.png'),
+            SizedBox(height: 16.h),
+            AppImage(path: 'splash_txt.png'),
           ],
         ),
       ),

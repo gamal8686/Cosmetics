@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/app/app_Image.dart';
-import '../../../core/helper/goto.dart';
-
-import '../view/logen.dart';
+import '../../core/logic/helper_methods.dart';
+import '../../core/ui/app_Image.dart';
+import '../auth/login.dart';
 
 class onpordengview extends StatefulWidget {
   const onpordengview({super.key});
@@ -15,13 +14,7 @@ class onpordengview extends StatefulWidget {
 
 class _onpordengviewState extends State<onpordengview> {
   int counter = 0;
-  List image = [
-'onpordeng1.png'
-    ,  'onporning2.png'
-    ,
-     'onporning3.png'
-    ,
-  ];
+  List image = ['onpordeng1.png', 'onporning2.png', 'onporning3.png'];
   List Descrbshen = ['WELCOME', 'SEARCH & PICK', 'PUCH NOTIFICATIONS '];
   List Test = [
     'Makeup has the power to transform your mood and empowers you to be a more confident person.',
@@ -34,20 +27,20 @@ class _onpordengviewState extends State<onpordengview> {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 37, vertical: 18),
+          padding:  EdgeInsets.symmetric(horizontal: 37.w, vertical: 18.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-AppImage(path:image[counter]),
-              SizedBox(height: 25),
+              AppImage(path: image[counter]),
+              SizedBox(height: 25.h),
               Text(
                 Descrbshen[counter],
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 25.h),
 
-              Text(Test[counter], style: TextStyle(fontSize: 16)),
-              SizedBox(height: 30),
+              Text(Test[counter], style: TextStyle(fontSize: 16.sp)),
+              SizedBox(height: 30.h),
 
               counter == 2
                   ? FilledButton(
