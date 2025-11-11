@@ -1,7 +1,7 @@
 import 'dart:async';
 
 
-import 'package:amar_bakr/views/home/view.dart';
+import 'package:amar_bakr/views/home/on_boarding.dart';
 
 
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class Splashviews extends StatefulWidget {
 class _SplashviewsState extends State<Splashviews> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () => goto(onpordengview()));
+    Timer(Duration(seconds: 3), () => goto(OnBoardingview()));
   }
 
   @override

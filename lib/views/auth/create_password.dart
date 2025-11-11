@@ -1,9 +1,8 @@
-import 'package:amar_bakr/views/auth/screen_dailog.dart';
+import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/ui/app_Image.dart';
-import '../../core/ui/app_buttomnavigatortext.dart';
 import '../../core/ui/app_filledbuttom.dart';
 import '../../core/ui/app_inpot.dart';
 
@@ -43,19 +42,25 @@ class CreatePassword extends StatelessWidget {
               child: AppFieldButtom(
                 width: 270,
                 onPressed: () {
-                 showDialog(context: context, builder:(context) =>  ScreenDialog(),);
+                 showDialog(context: context, builder:(context) =>  ScreenDialogPassword(),);
                 },
                 text: 'Confirm',
               ),
             ),
             SizedBox(height: 80.h),
-            Padding(
-              padding:  EdgeInsets.only(left: 80.r),
-              child: AppButtomNavigatorTest(
-                text: 'Have an account?',
-                textButtom: 'Login',
-              ),
+
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Have an account?',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                ),
+                TextButton(onPressed: () {}, child: Text('Login')),
+              ],
             ),
+
+
           ],
         ),
       ),

@@ -6,11 +6,13 @@ import 'app_Image.dart';
 class AppInpot extends StatefulWidget {
   final String? path, labol;
   final bool drobDowen;
- final bool ispassword
+  final bool ispassword
   ;
+ final bool iskeyboardType;
 
+  const AppInpot(
+      {super.key, this.path, this.drobDowen = false, this.labol, this.ispassword = false, this.iskeyboardType=false, });
 
-  const AppInpot({super.key, this.path, this.drobDowen = false, this.labol,  this.ispassword=false});
 
   @override
   State<AppInpot> createState() => _AppInpotState();
@@ -20,6 +22,7 @@ class _AppInpotState extends State<AppInpot> {
   final list = [10, 20, 30];
   late int selectedCauntryCod;
   bool ishedin = true;
+
 
   @override
   void initState() {
@@ -31,7 +34,7 @@ class _AppInpotState extends State<AppInpot> {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding:  EdgeInsets.only(bottom: 16.r),
+        padding: EdgeInsets.only(bottom: 16.r),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -40,16 +43,21 @@ class _AppInpotState extends State<AppInpot> {
                 padding: EdgeInsetsDirectional.only(end: 10.r),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Theme.of(
+                    color: Theme
+                        .of(
                       context,
-                    ).inputDecorationTheme.enabledBorder!.borderSide.color,
+                    )
+                        .inputDecorationTheme
+                        .enabledBorder!
+                        .borderSide
+                        .color,
                     border: Border.all(),
                     borderRadius: BorderRadius.circular(8.r),
                   ),
                   child: DropdownButton<int>(
                     icon: Padding(
                       padding: EdgeInsetsDirectional.only(start: 4.r),
-                      child: AppImage(path: 'DropdownButton.svg'),
+                      child: AppImage(path: 'arrow_down.svg'),
                     ),
 
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -57,7 +65,7 @@ class _AppInpotState extends State<AppInpot> {
                     items: list
                         .map(
                           (e) => DropdownMenuItem(value: e, child: Text('$e')),
-                        )
+                    )
                         .toList(),
                     onChanged: (value) {
                       selectedCauntryCod = value!;
@@ -69,22 +77,23 @@ class _AppInpotState extends State<AppInpot> {
 
             Expanded(
               child: TextFormField(
-
-                obscureText: widget.ispassword&&ishedin?true:false,
+                keyboardType:widget.iskeyboardType?TextInputType.number:TextInputType.name,
+                obscureText: widget.ispassword && ishedin ? true : false,
                 decoration: InputDecoration(
                   suffixIcon: Padding(
-                    padding:  EdgeInsets.symmetric(
-                      horizontal: 12.w,
-                      vertical: 12.h,
-                    ),
-                    child: widget.ispassword? IconButton(
-                      onPressed: () {
-                        ishedin = !ishedin;
-                        setState(() {});
-                      },
-                      icon: AppImage(path:ishedin? 'Vectoron.svg':'VectorOff.svg')
+                      padding: EdgeInsets.symmetric(
 
-                    ):null
+                      ),
+                      child: widget.ispassword ? IconButton(
+                          onPressed: () {
+                            ishedin = !ishedin;
+                            setState(() {});
+                          },
+                          icon: AppImage(path: ishedin
+                              ? 'visability_on.svg'
+                              : 'visability_off.svg')
+
+                      ) : null
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.r),

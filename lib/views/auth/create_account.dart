@@ -1,12 +1,12 @@
-
+import 'package:amar_bakr/core/logic/helper_methods.dart';
+import 'package:amar_bakr/views/auth/verify_Code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/ui/app_Image.dart';
-import '../../core/ui/app_buttomnavigatortext.dart';
 import '../../core/ui/app_filledbuttom.dart';
 import '../../core/ui/app_inpot.dart';
-
+import 'login.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -20,13 +20,12 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-
+        //scrollDirection: Axis.vertical,
         padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AppImage(path: 'splash.png', height: 65.h, width: 65.w),
+            AppImage(path: 'logo.png', height: 65.h, width: 65.w),
             SizedBox(height: 40.h),
             Text(
               'Create Account',
@@ -36,18 +35,28 @@ class _CreateAccountState extends State<CreateAccount> {
 
             AppInpot(labol: 'Your Name'),
             AppInpot(labol: 'Phone Number', drobDowen: true),
-            AppInpot(labol: 'Create your password',ispassword: true,),
-            AppInpot(labol: 'Confirm password',ispassword: true,),
+            AppInpot(labol: 'Create your password', ispassword: true),
+            AppInpot(labol: 'Confirm password', ispassword: true),
             SizedBox(height: 90.h),
             Center(
               child: AppFieldButtom(
-                  width: 270.w,
-                  onPressed: () {}, text: 'Next'),
-            ), SizedBox(height: 80.h),
-            Padding(
-              padding:  EdgeInsets.only(left: 80.r),
-              child: AppButtomNavigatorTest(text: 'Have an account?',textButtom: 'Login',),
-            )
+                width: 270.w,
+                onPressed: () {goto(VerifyCode());},
+                text: 'Next',
+              ),
+            ),
+            SizedBox(height: 80.h),
+
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Have an account?',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                ),
+                TextButton(onPressed: () {goto(logenview());}, child: Text('Login')),
+              ],
+            ),
 
 
           ],
@@ -56,4 +65,3 @@ class _CreateAccountState extends State<CreateAccount> {
     );
   }
 }
-

@@ -8,19 +8,19 @@ import 'home/home_Page.dart';
 import 'home/profile.dart';
 import 'home/my_cart.dart';
 
-class OnBordenge extends StatefulWidget {
-  const OnBordenge({super.key});
+class ViewHome extends StatefulWidget {
+  const ViewHome({super.key});
 
   @override
-  State<OnBordenge> createState() => _HomeviewState();
+  State<ViewHome> createState() => _HomeviewState();
 }
 
-class _HomeviewState extends State<OnBordenge> {
+class _HomeviewState extends State<ViewHome> {
   List<_model> pages = [
-    _model(image: 'assets/svg/home.svg', page: Homepage()),
-    _model(image: 'assets/svg/nat.svg', page: Categorypage()),
-    _model(image: 'assets/svg/myCard.svg', page: Mycardpage()),
-    _model(image: 'assets/svg/person.svg', page: idpage()),
+    _model(image: 'assets/icons/home.svg', page: Homepage()),
+    _model(image: 'assets/icons/categories.svg', page: Categorypage()),
+    _model(image: 'assets/icons/my_cart.svg', page: Mycardpage()),
+    _model(image: 'assets/icons/profile.svg', page: idpage()),
   ];
   int currentIndex = 2;
   @override

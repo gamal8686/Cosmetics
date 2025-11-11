@@ -5,16 +5,16 @@ import '../../core/logic/helper_methods.dart';
 import '../../core/ui/app_Image.dart';
 import '../auth/login.dart';
 
-class onpordengview extends StatefulWidget {
-  const onpordengview({super.key});
+class OnBoardingview extends StatefulWidget {
+  const OnBoardingview({super.key});
 
   @override
-  State<onpordengview> createState() => _onpordengviewState();
+  State<OnBoardingview> createState() => _onpordengviewState();
 }
 
-class _onpordengviewState extends State<onpordengview> {
+class _onpordengviewState extends State<OnBoardingview> {
   int counter = 0;
-  List image = ['onpordeng1.png', 'onporning2.png', 'onporning3.png'];
+  List image = ['on_boarding1.png', 'on_boarding2.png', 'on_boarding3.png'];
   List Descrbshen = ['WELCOME', 'SEARCH & PICK', 'PUCH NOTIFICATIONS '];
   List Test = [
     'Makeup has the power to transform your mood and empowers you to be a more confident person.',
@@ -26,8 +26,10 @@ class _onpordengviewState extends State<onpordengview> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Padding(
+
+        child: SingleChildScrollView(
           padding:  EdgeInsets.symmetric(horizontal: 37.w, vertical: 18.h),
+
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -48,9 +50,10 @@ class _onpordengviewState extends State<onpordengview> {
                       onPressed: () {
                         goto(logenview());
                       },
-                      child: AppImage(path: 'goto.svg'),
+                      child: AppImage(path: 'arrow_right.svg'),
                     )
-                  : FloatingActionButton(
+                  :
+              FloatingActionButton(
                       backgroundColor: Color(0xff434C6D),
                       onPressed: () {
                         if (counter < 2) {
@@ -60,8 +63,9 @@ class _onpordengviewState extends State<onpordengview> {
                           goto(logenview());
                         }
                       },
-                      child: AppImage(path: 'goto.svg'),
-                    ),
+                      child: AppImage(path: 'arrow_right.svg'),
+                    )
+
             ],
           ),
         ),

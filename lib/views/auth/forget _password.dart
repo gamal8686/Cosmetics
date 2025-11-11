@@ -5,13 +5,21 @@ import '../../core/ui/app_Image.dart';
 import '../../core/ui/app_filledbuttom.dart';
 import '../../core/ui/app_inpot.dart';
 
-
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: GestureDetector(
+          onTap: () {},
+          child: CircleAvatar(
+            radius: 15,
+            child: AppImage(path: 'arrow_left.svg'),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
         child: Column(
@@ -25,22 +33,25 @@ class ForgetPassword extends StatelessWidget {
             ),
             SizedBox(height: 50.h),
             Align(
-                alignment: Alignment.center,
-                child: Text('Please enter your phone number below\n to recovery your password.',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),))
-         , SizedBox(height: 40.h),
-
+              alignment: Alignment.center,
+              child: Text(
+                'Please enter your phone number below\n to recovery your password.',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              ),
+            ),
+            SizedBox(height: 40.h),
 
             AppInpot(labol: 'Phone Number', drobDowen: true),
 
             SizedBox(height: 55.h),
             Center(
               child: AppFieldButtom(
-                  width: 270.w,
-                  onPressed: () {}, text: 'Next'),
-            ), SizedBox(height: 80.h),
-
-
-
+                width: 270.w,
+                onPressed: () {},
+                text: 'Next',
+              ),
+            ),
+            SizedBox(height: 80.h),
           ],
         ),
       ),

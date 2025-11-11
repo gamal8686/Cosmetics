@@ -36,7 +36,7 @@ class AppImage extends StatelessWidget {
     }
     if (path.endsWith('svg')) {
       return SvgPicture.asset(
-        'assets/svg/$path',
+        'assets/icons/$path',
         height: height,
         width: width,
         errorBuilder: (context, error, stackTrace) => Text('404'),
