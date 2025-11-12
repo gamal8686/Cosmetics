@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../core/ui/app_Image.dart';
-import '../../core/ui/app_inpot.dart';
+import '../../../core/ui/app_image.dart';
+import '../../../core/ui/app_input.dart';
+
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});

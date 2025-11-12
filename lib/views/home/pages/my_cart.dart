@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_Image.dart';
+import '../../../core/ui/app_Image.dart';
 
 class Mycardpage extends StatelessWidget {
   const Mycardpage({super.key});

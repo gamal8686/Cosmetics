@@ -3,9 +3,9 @@ import 'package:amar_bakr/views/auth/verify_Code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_Image.dart';
-import '../../core/ui/app_filledbuttom.dart';
-import '../../core/ui/app_inpot.dart';
+import '../../core/ui/app_image.dart';
+import '../../core/ui/app_buttom.dart';
+import '../../core/ui/app_input.dart';
 import 'login.dart';
 
 class CreateAccount extends StatefulWidget {

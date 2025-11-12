@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'app_Image.dart';
+import 'app_image.dart';
 
 class AppInpot extends StatefulWidget {
   final String? path, labol;

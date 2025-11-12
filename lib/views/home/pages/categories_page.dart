@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_Image.dart';
-import '../../core/ui/app_inpot.dart';
+import '../../../core/ui/app_image.dart';
+import '../../../core/ui/app_input.dart';
 
 class Categorypage extends StatelessWidget {
   const Categorypage({super.key});

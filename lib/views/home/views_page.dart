@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'home/categories_page.dart';
-import 'home/home_Page.dart';
-import 'home/profile.dart';
-import 'home/my_cart.dart';
+import 'pages/categories_page.dart';
+import 'pages/home_page.dart';
+import 'pages/my_cart.dart';
+import 'pages/profile.dart';
 
 class ViewHome extends StatefulWidget {
   const ViewHome({super.key});
