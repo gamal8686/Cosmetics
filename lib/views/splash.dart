@@ -20,7 +20,7 @@ class Splashviews extends StatefulWidget {
 class _SplashviewsState extends State<Splashviews> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () => goto(OnBoardingview()));
+    Timer(Duration(seconds: 3), () => goTo(OnBoardingview()));
   }
 
   @override

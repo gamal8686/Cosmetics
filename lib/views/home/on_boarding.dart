@@ -48,7 +48,7 @@ class _onpordengviewState extends State<OnBoardingview> {
                   ? FilledButton(
                       style: FilledButton.styleFrom(fixedSize: Size(350, 60)),
                       onPressed: () {
-                        goto(logenview());
+                        goTo(logenview());
                       },
                       child: AppImage(path: 'arrow_right.svg'),
                     )
@@ -60,7 +60,7 @@ class _onpordengviewState extends State<OnBoardingview> {
                           counter++;
                           setState(() {});
                         } else {
-                          goto(logenview());
+                          goTo(logenview());
                         }
                       },
                       child: AppImage(path: 'arrow_right.svg'),

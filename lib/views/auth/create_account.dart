@@ -20,7 +20,6 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        //scrollDirection: Axis.vertical,
         padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,7 +40,9 @@ class _CreateAccountState extends State<CreateAccount> {
             Center(
               child: AppFieldButtom(
                 width: 270.w,
-                onPressed: () {goto(VerifyCode());},
+                onPressed: () {
+
+                  goTo(VerifyCode());},
                 text: 'Next',
               ),
             ),
@@ -54,7 +55,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   'Have an account?',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                 ),
-                TextButton(onPressed: () {goto(logenview());}, child: Text('Login')),
+                TextButton(onPressed: () {goTo(logenview());}, child: Text('Login')),
               ],
             ),
 

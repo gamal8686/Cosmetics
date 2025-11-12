@@ -1,3 +1,4 @@
+import 'package:amar_bakr/core/logic/helper_methods.dart';
 import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,8 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/ui/app_Image.dart';
 import '../../core/ui/app_filledbuttom.dart';
 import '../../core/ui/app_inpot.dart';
-
-
 
 class CreatePassword extends StatelessWidget {
   const CreatePassword({super.key});
@@ -42,7 +41,11 @@ class CreatePassword extends StatelessWidget {
               child: AppFieldButtom(
                 width: 270,
                 onPressed: () {
-                 showDialog(context: context, builder:(context) =>  ScreenDialogPassword(),);
+                  showDialog(
+                    context: context,
+                    barrierColor: Colors.black..withValues(alpha: 0.40),
+                    builder: (context) => const ScreenDialogPassword(),
+                  );
                 },
                 text: 'Confirm',
               ),
@@ -59,8 +62,6 @@ class CreatePassword extends StatelessWidget {
                 TextButton(onPressed: () {}, child: Text('Login')),
               ],
             ),
-
-
           ],
         ),
       ),

@@ -68,7 +68,7 @@ class idpage extends StatelessWidget {
                   SizedBox(width: 8.w),
                   TextButton(
                     onPressed: () {
-                goto(CheckOutView());
+                goTo(CheckOutView());
                     },
 
                      child: Text('Logout',

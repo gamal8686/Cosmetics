@@ -65,7 +65,7 @@ class _logenviewState extends State<logenview> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    goto(ForgetPassword());
+                    goTo(ForgetPassword());
                   },
                   child: Text(
                     'Forget Password?',
@@ -81,7 +81,8 @@ class _logenviewState extends State<logenview> {
               Center(
                 child: AppFieldButtom(
                     width: 268,
-                    text: 'Login', onPressed: () {goto(CreateAccount(),keepHestore: true);}),
+                    text: 'Login', onPressed: () {
+                      goTo(CreateAccount(),canPop: true);}),
               ),
               SizedBox(height: 42.h),
               Row(

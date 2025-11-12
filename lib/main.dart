@@ -1,5 +1,6 @@
 
 import 'package:amar_bakr/views/auth/account_activated_dailog.dart';
+import 'package:amar_bakr/views/auth/create_password.dart';
 import 'package:amar_bakr/views/auth/forget%20_password.dart';
 import 'package:amar_bakr/views/auth/login.dart';
 import 'package:amar_bakr/views/auth/password_created_dailog.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
-        navigatorKey: gotokey,
+        navigatorKey: navKey,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           textTheme: TextTheme(
@@ -85,7 +86,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: Splashviews(),
+        home: CreatePassword(),
       ),
     );
 

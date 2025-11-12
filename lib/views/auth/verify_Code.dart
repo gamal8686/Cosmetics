@@ -1,4 +1,3 @@
-
 import 'package:amar_bakr/core/logic/helper_methods.dart';
 import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../core/ui/app_Image.dart';
 import '../../core/ui/app_filledbuttom.dart';
+import 'account_activated_dailog.dart';
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({super.key});
@@ -67,20 +67,19 @@ class VerifyCode extends StatelessWidget {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(left: 80.r, right: 80.r),
+              padding: EdgeInsets.only(left: 80.r, right: 80.r),
               child: PinCodeTextField(
                 keyboardType: TextInputType.number,
 
                 appContext: context,
-                cursorColor:Theme.of(context).primaryColor,
+                cursorColor: Theme.of(context).primaryColor,
 
                 length: 4,
                 backgroundColor: Theme.of(
                   context,
                 ).primaryColor.withValues(alpha: 0.040),
                 pinTheme: PinTheme(
-                    inactiveFillColor:Theme.of(context).primaryColor,
-
+                  inactiveFillColor: Theme.of(context).primaryColor,
 
                   selectedColor: Color(0xffD75D72),
                   activeColor: Color(0xffD75D72),
@@ -93,7 +92,7 @@ class VerifyCode extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 40.h,),
+            SizedBox(height: 40.h),
 
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -102,23 +101,29 @@ class VerifyCode extends StatelessWidget {
                   'Didn’t receive a code?',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                 ),
-             TextButton(
-                 clipBehavior:Clip.none,
-                 onPressed: () {}, child: Text('Resend')),
+                TextButton(
+                  clipBehavior: Clip.none,
+                  onPressed: () {},
+                  child: Text('Resend'),
+                ),
                 Spacer(),
-                TextButton(onPressed: () {
+                TextButton(onPressed: () {}, child: Text('0:36')),
+              ],
+            ),
 
-                }, child: Text('0:36'))
-              ],),
-
-            SizedBox(height: 116.h,),
+            SizedBox(height: 116.h),
             AppFieldButtom(
               width: 270.w,
 
-              text: 'Done', onPressed: () {
-    goto(ScreenDialogPassword());
-            },)
-
+              text: 'Done',
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  barrierColor: Colors.black.withOpacity(0.4),
+                  builder: (context) => const AccountActivatedDailog(),
+                );
+              },
+            ),
           ],
         ),
       ),
