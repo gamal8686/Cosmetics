@@ -5,8 +5,8 @@ import '../../../core/logic/helper_methods.dart';
 import '../../../core/ui/app_image.dart';
 import '../../check_out.dart';
 
-class idpage extends StatelessWidget {
-  const idpage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class idpage extends StatelessWidget {
                   Color(0x434C6DD4).withValues(alpha: 0.83),
                   Color(0xffECA4C5),
                 ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
           ),
@@ -33,12 +33,12 @@ class idpage extends StatelessWidget {
             right: 160,
             child: CircleAvatar(
               maxRadius: 45,
-              child: AppImage(path: 'ellipse.png'),
+              child: AppImage(path: 'profile.png'),
             ),
           ),
-          SizedBox(height: 16.h),
+          SizedBox(width: 16.h),
           Positioned(
-            right: 140,
+            right: 110,
             top: 220,
             child: Text(
               'Sara Samer Talaat',
@@ -51,32 +51,36 @@ class idpage extends StatelessWidget {
           ),
           SizedBox(height: 40.h),
 
-          ListView.separated(
+          ListView.builder(
+
             padding: EdgeInsets.symmetric(vertical: 250.h, horizontal: 10.w),
             itemBuilder: (context, index) => item(index: index),
-            separatorBuilder: (context, index) => Divider(),
+            // separatorBuilder: (context, index) => Divider(),
             itemCount: model.length,
           ),
-          SizedBox(width: 34.w),
+          SizedBox(height: 34.h),
           Positioned(
-            bottom: 300,
+            top: 600,
             child: Container(
               padding: EdgeInsets.all(10.r),
               child: Row(
                 children: [
-                  AppImage(path: 'Vector.svg'),
+                  AppImage(path: 'logout.svg'),
                   SizedBox(width: 8.w),
                   TextButton(
                     onPressed: () {
-                goTo(CheckOutView());
+                      goTo(CheckOutView());
                     },
 
-                     child: Text('Logout',
-                       style: TextStyle(
-                         fontSize: 14.sp,
-                         fontWeight: FontWeight.w600,
-                         color: Color(0xffCD0F0F))))
-
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xffCD0F0F),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -95,13 +99,14 @@ class item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 16),
       color: Theme.of(context).primaryColor,
       child: Row(
         children: [
           model[index].labol,
           SizedBox(width: 3.w),
           Text(
-            'data',
+            model[index].labols,
             style: TextStyle(
               fontSize: 13.sp,
               fontWeight: FontWeight.w600,
@@ -109,24 +114,25 @@ class item extends StatelessWidget {
             ),
           ),
           Spacer(),
-          IconButton(onPressed: () {}, icon: model[index].labols),
+          IconButton(onPressed: () {}, icon:AppImage(path: 'arrow_right.png')),
         ],
       ),
     );
   }
 }
 
-class iconn {
+class CardProfily {
   final Widget labol;
-  final Widget labols;
+  final String labols;
 
-  iconn(this.labol, this.labols);
+  CardProfily(this.labol, this.labols);
 }
 
-List<iconn> model = [
-  iconn(AppImage(path: 'svg11.svg'), AppImage(path: 'Vector.png')),
-  iconn(AppImage(path: 'svg12.svg'), AppImage(path: 'Vector.png')),
-  iconn(AppImage(path: 'svg13.svg'), AppImage(path: 'Vector.png')),
-  iconn(AppImage(path: 'svg14.svg'), AppImage(path: 'Vector.png')),
-  iconn(AppImage(path: 'svg15.svg'), AppImage(path: 'Vector.png')),
+List<CardProfily> model = [
+
+  CardProfily(AppImage(path: 'edit_info.svg'), 'Edit Info'),
+  CardProfily(AppImage(path: 'order-history.svg'), 'Order History'),
+  CardProfily(AppImage(path: 'wallet.svg'), 'Wallet'),
+  CardProfily(AppImage(path: 'setting.svg'), 'Settings'),
+  CardProfily(AppImage(path: 'discount.svg'),'Voucher'),
 ];

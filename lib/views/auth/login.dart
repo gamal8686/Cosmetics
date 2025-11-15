@@ -8,14 +8,14 @@ import '../../core/ui/app_input.dart';
 import 'create_account.dart';
 import 'forget _password.dart';
 
-class logenview extends StatefulWidget {
-  const logenview({super.key});
+class LogenView extends StatefulWidget {
+  const LogenView({super.key});
 
   @override
-  State<logenview> createState() => _logenviewState();
+  State<LogenView> createState() => _LogenViewState();
 }
 
-class _logenviewState extends State<logenview> {
+class _LogenViewState extends State<LogenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

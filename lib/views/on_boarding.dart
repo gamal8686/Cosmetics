@@ -5,14 +5,14 @@ import '../core/logic/helper_methods.dart';
 import '../core/ui/app_image.dart';
 import 'auth/login.dart';
 
-class OnBoardingview extends StatefulWidget {
-  const OnBoardingview({super.key});
+class OnBoardingView extends StatefulWidget {
+  const OnBoardingView({super.key});
 
   @override
-  State<OnBoardingview> createState() => _onpordengviewState();
+  State<OnBoardingView> createState() => _onpordengviewState();
 }
 
-class _onpordengviewState extends State<OnBoardingview> {
+class _onpordengviewState extends State<OnBoardingView> {
   int counter = 0;
   List image = ['on_boarding1.png', 'on_boarding2.png', 'on_boarding3.png'];
   List Descrbshen = ['WELCOME', 'SEARCH & PICK', 'PUCH NOTIFICATIONS '];
@@ -48,7 +48,7 @@ class _onpordengviewState extends State<OnBoardingview> {
                   ? FilledButton(
                       style: FilledButton.styleFrom(fixedSize: Size(350, 60)),
                       onPressed: () {
-                        goTo(logenview());
+                        goTo(LogenView());
                       },
                       child: AppImage(path: 'arrow_right.svg'),
                     )
@@ -60,7 +60,7 @@ class _onpordengviewState extends State<OnBoardingview> {
                           counter++;
                           setState(() {});
                         } else {
-                          goTo(logenview());
+                          goTo(LogenView());
                         }
                       },
                       child: AppImage(path: 'arrow_right.svg'),

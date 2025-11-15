@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'pages/categories_page.dart';
+import 'pages/category_page.dart';
 import 'pages/home_page.dart';
 import 'pages/my_cart.dart';
 import 'pages/profile.dart';
@@ -17,12 +16,13 @@ class ViewHome extends StatefulWidget {
 
 class _HomeviewState extends State<ViewHome> {
   List<_model> pages = [
-    _model(image: 'assets/icons/home.svg', page: Homepage()),
-    _model(image: 'assets/icons/categories.svg', page: Categorypage()),
-    _model(image: 'assets/icons/my_cart.svg', page: Mycardpage()),
-    _model(image: 'assets/icons/profile.svg', page: idpage()),
+    _model(image: 'assets/icons/home.svg', page: HomePage()),
+    _model(image: 'assets/icons/categories.svg', page: CategoryPage()),
+    _model(image: 'assets/icons/my_cart.svg', page: MyCardPage()),
+    _model(image: 'assets/icons/profile.svg', page: ProfilePage()),
   ];
-  int currentIndex = 2;
+  int currentIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

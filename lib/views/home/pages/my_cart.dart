@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/ui/app_Image.dart';
 
-class Mycardpage extends StatelessWidget {
-  const Mycardpage({super.key});
+class MyCardPage extends StatelessWidget {
+  const MyCardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Mycardpage extends StatelessWidget {
           actions: [
             Padding(
               padding:  EdgeInsets.all(10.0.r),
-              child: AppImage(path: 'mycar.svg'),
+              child: AppImage(path: 'cart_on_category.svg'),
             ),
           ],
         ),
@@ -87,61 +87,65 @@ class _itemsState extends State<_items> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
-          alignment: Alignment.topLeft,
           children: [
             ClipRRect(
               borderRadius: BorderRadiusGeometry.circular(8),
               child: AppImage(
                 fit: BoxFit.cover,
-                height: 100.h,
+                height: 130.h,
+                width: 120.w,
                 path:
                     'https://www.instyle.com/thmb/rLPYCp3POuu06E6t2k_vXQt-MpA=/fit-in/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/rare-beauty-by-selena-gomez-brow-harmony-flexible-lifting-5e251db69f69400eb8f67f9dcdb72630.jpg',
               ),
             ),
-            AppImage(path: 'delete.svg',height: 20.h,width:
-              20.w,),
+            Container(
+              margin: EdgeInsets.only(top: 6,left: 6),
+              child: AppImage(path: 'delete.svg',height: 20.h,width:
+                20.w,),
+            ),
           ],
         ),
         SizedBox(width: 8.w),
-        Column(
-          children: [
-            Text.rich(
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.bold,
-                color: Color(0xff3B4569),
-              ),
-              TextSpan(
-                children: [
-                  TextSpan(text: 'Note Cosmetics\n'),
-                  TextSpan(
-                    text: 'Ultra rich mascara for lashes\n\n',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff3B4569).withValues(alpha: .73),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text.rich(
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff3B4569),
+                ),
+                TextSpan(
+                  children: [
+                    TextSpan(text: 'Note Cosmetics\n'),
+                    TextSpan(
+                      text: 'Ultra rich mascara for lashes\n\n',
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff3B4569).withValues(alpha: .73),
+                      ),
                     ),
-                  ),
-                  TextSpan(text: '350 EGP\n'),
-                ],
+                    TextSpan(text: '350 EGP\n'),
+                  ],
+                ),
               ),
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Container(
+              Container(
+                margin: EdgeInsets.only(left: 50.r),
                 decoration: BoxDecoration(
                   border: Border.all(color: Color(0xff8E8EA9)),
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
+mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
                       onPressed: () {
                         counter--;
                         setState(() {});
                       },
-                      child: AppImage(path: 'Group+.svg'),
+                      child: AppImage(path: 'minus.svg'),
                     ),
                     TextButton(onPressed: () {}, child: Text('$counter')),
                     TextButton(
@@ -149,13 +153,13 @@ class _itemsState extends State<_items> {
                         counter++;
                         setState(() {});
                       },
-                      child: AppImage(path: 'Group-.svg'),
+                      child: AppImage(path: 'plus.svg'),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

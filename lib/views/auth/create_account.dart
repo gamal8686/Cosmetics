@@ -55,7 +55,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   'Have an account?',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                 ),
-                TextButton(onPressed: () {goTo(logenview());}, child: Text('Login')),
+                TextButton(onPressed: () {goTo(LogenView());}, child: Text('Login')),
               ],
             ),
 

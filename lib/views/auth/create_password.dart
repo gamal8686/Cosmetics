@@ -1,4 +1,3 @@
-import 'package:amar_bakr/core/logic/helper_methods.dart';
 import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

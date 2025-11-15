@@ -6,13 +6,14 @@ class AppImage extends StatelessWidget {
   final String path;
   final double? height, width;
   final BoxFit? fit;
+  final Color? color;
 
   const AppImage({
     super.key,
     required this.path,
     this.height,
     this.width,
-    this.fit = BoxFit.cover,
+    this.fit = BoxFit.cover, this.color,
   });
 
   @override
@@ -39,6 +40,7 @@ class AppImage extends StatelessWidget {
         'assets/icons/$path',
         height: height,
         width: width,
+        color: color,
         errorBuilder: (context, error, stackTrace) => Text('404'),
       );
     }

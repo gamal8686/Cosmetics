@@ -1,10 +1,16 @@
 
 import 'package:amar_bakr/views/auth/account_activated_dailog.dart';
+import 'package:amar_bakr/views/auth/create_account.dart';
 import 'package:amar_bakr/views/auth/create_password.dart';
 import 'package:amar_bakr/views/auth/forget%20_password.dart';
 import 'package:amar_bakr/views/auth/login.dart';
 import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:amar_bakr/views/auth/verify_Code.dart';
+import 'package:amar_bakr/views/check_out.dart';
+import 'package:amar_bakr/views/home/pages/category_page.dart';
+import 'package:amar_bakr/views/home/pages/home_page.dart';
+import 'package:amar_bakr/views/home/pages/my_cart.dart';
+import 'package:amar_bakr/views/home/pages/profile.dart';
 import 'package:amar_bakr/views/on_boarding.dart';
 import 'package:amar_bakr/views/home/views_page.dart';
 import 'package:amar_bakr/views/splash.dart';
@@ -86,7 +92,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: CreatePassword(),
+        home: CheckOutView(),
       ),
     );
 
