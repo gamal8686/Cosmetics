@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
+import '../../core/components/app_buttom.dart';
+
+
 
 class AccountActivatedDailog extends StatelessWidget {
   const AccountActivatedDailog({super.key});

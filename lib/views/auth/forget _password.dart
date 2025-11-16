@@ -1,9 +1,12 @@
+import 'package:amar_bakr/core/components/app_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
-import '../../core/ui/app_input.dart';
+import '../../core/components/app_buttom.dart';
+import '../../core/components/app_image.dart';
+import '../../core/components/app_input.dart';
+
+
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -11,20 +14,15 @@ class ForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: GestureDetector(
-          onTap: () {},
-          child: CircleAvatar(
-            radius: 15,
-            child: AppImage(path: 'arrow_left.svg'),
-          ),
-        ),
-      ),
+
       body: SingleChildScrollView(
-        padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
+        padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 50.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            AppBack(),
+            SizedBox(height: 40.h),
+
             AppImage(path: 'logo.png', height: 65.h, width: 65.w),
             SizedBox(height: 40.h),
             Text(

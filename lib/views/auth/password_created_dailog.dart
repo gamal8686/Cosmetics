@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
+import '../../core/components/app_buttom.dart';
+
+
 
 class ScreenDialogPassword extends StatelessWidget {
   const ScreenDialogPassword({super.key});

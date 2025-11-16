@@ -7,7 +7,6 @@ class AppInpot extends StatefulWidget {
   final String? path, labol;
   final bool drobDowen;
   final bool ispassword;
-
   final bool iskeyboardType;
 
   const AppInpot({
@@ -17,6 +16,7 @@ class AppInpot extends StatefulWidget {
     this.labol,
     this.ispassword = false,
     this.iskeyboardType = false,
+    //this.mycircular,
   });
 
   @override
@@ -27,6 +27,8 @@ class _AppInpotState extends State<AppInpot> {
   final list = [10, 20, 30];
   late int selectedCauntryCod;
   bool ishedin = true;
+
+
 
   @override
   void initState() {
@@ -108,7 +110,7 @@ class _AppInpotState extends State<AppInpot> {
                   filled: true,
                   fillColor: Color(0xffD9D9D9),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.r),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
               ),

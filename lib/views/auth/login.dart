@@ -2,20 +2,21 @@ import 'package:amar_bakr/core/logic/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
-import '../../core/ui/app_input.dart';
+import '../../core/components/app_buttom.dart';
+import '../../core/components/app_image.dart';
+import '../../core/components/app_input.dart';
+
 import 'create_account.dart';
 import 'forget _password.dart';
 
-class LogenView extends StatefulWidget {
-  const LogenView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<LogenView> createState() => _LogenViewState();
+  State<LoginView> createState() => _LogenViewState();
 }
 
-class _LogenViewState extends State<LogenView> {
+class _LogenViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +56,7 @@ class _LogenViewState extends State<LogenView> {
                 labol: 'Phone Number',
               ),
               AppInpot(
+
                 iskeyboardType: true,
 
                 labol: 'Your Password',
@@ -65,7 +67,7 @@ class _LogenViewState extends State<LogenView> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    goTo(ForgetPassword());
+                    goTo(ForgetPassword(),canPop: true);
                   },
                   child: Text(
                     'Forget Password?',
@@ -96,7 +98,9 @@ class _LogenViewState extends State<LogenView> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      goTo(CreateAccount());
+                    },
                     child: Text(
                       'Login',
                       style: TextStyle(

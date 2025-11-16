@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../core/components/app_image.dart';
 import '../core/logic/helper_methods.dart';
-import '../core/ui/app_image.dart';
 import 'auth/login.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -13,63 +13,105 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _onpordengviewState extends State<OnBoardingView> {
-  int counter = 0;
-  List image = ['on_boarding1.png', 'on_boarding2.png', 'on_boarding3.png'];
-  List Descrbshen = ['WELCOME', 'SEARCH & PICK', 'PUCH NOTIFICATIONS '];
-  List Test = [
-    'Makeup has the power to transform your mood and empowers you to be a more confident person.',
-    'We have dedicated set of products and routines hand picked for every skin type.',
-    'Allow notifications for new makeup & cosmetics offers.',
+ // final islast= counterindex == 2;
+  final List = [
+    _model(
+      image: 'on_boarding1.png',
+      titel: 'WELCOME',
+      desc:
+          'Makeup has the power to transform your mood and empowers you to be a more confident person.',
+    ),
+    _model(
+      image: 'on_boarding2.png',
+      titel: 'SEARCH & PICK',
+      desc:
+          'We have dedicated set of products and routines hand picked for every skin type.',
+    ),
+    _model(
+      image: 'on_boarding3.png',
+      titel: 'PUCH NOTIFICATIONS',
+      desc: 'Allow notifications for new makeup & cosmetics offers.',
+    ),
   ];
 
+  int counterindex = 0;
+
+  goToLogin(){
+    goTo(LoginView(),canPop: false);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-
         child: SingleChildScrollView(
-          padding:  EdgeInsets.symmetric(horizontal: 37.w, vertical: 18.h),
+          padding: EdgeInsets.symmetric(horizontal: 37.w),
 
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AppImage(path: image[counter]),
+              if( counterindex < 2)
+              Align(
+                alignment: Alignment.topRight,
+                child: TextButton(
+                  onPressed:  goToLogin,
+                  child: Text(
+                    'Skip',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xff434C6D),
+                    ),
+                  ),
+                ),
+              ),
+              AppImage(path: List[counterindex].image),
               SizedBox(height: 25.h),
               Text(
-                Descrbshen[counter],
-                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold),
+                List[counterindex].titel,
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w900),
               ),
               SizedBox(height: 25.h),
 
-              Text(Test[counter], style: TextStyle(fontSize: 16.sp)),
+              Text(
+                List[counterindex].desc,
+                style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.w400),
+                textAlign: TextAlign.center,
+              ),
               SizedBox(height: 30.h),
 
-              counter == 2
+              counterindex == 2
                   ? FilledButton(
-                      style: FilledButton.styleFrom(fixedSize: Size(350, 60)),
+
+                      style: FilledButton.styleFrom(
+                          backgroundColor: Color(0xff434C6D),
+                          fixedSize: Size(268, 60)),
                       onPressed: () {
-                        goTo(LogenView());
+                   goToLogin();
                       },
                       child: AppImage(path: 'arrow_right.svg'),
                     )
-                  :
-              FloatingActionButton(
+                  : FloatingActionButton(
                       backgroundColor: Color(0xff434C6D),
                       onPressed: () {
-                        if (counter < 2) {
-                          counter++;
+                        if (counterindex < 2) {
+                          counterindex++;
                           setState(() {});
                         } else {
-                          goTo(LogenView());
+                          goToLogin();
                         }
                       },
                       child: AppImage(path: 'arrow_right.svg'),
-                    )
-
+                    ),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+class _model {
+  final String image, titel, desc;
+
+  _model({required this.image, required this.titel, required this.desc});
 }

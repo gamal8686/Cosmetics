@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../core/ui/app_image.dart';
+import '../core/components/app_image.dart';
+
 
 class CheckOutView extends StatelessWidget {
   const CheckOutView({super.key});

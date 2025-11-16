@@ -3,9 +3,10 @@ import 'package:amar_bakr/views/auth/verify_Code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
-import '../../core/ui/app_input.dart';
+import '../../core/components/app_buttom.dart';
+import '../../core/components/app_image.dart';
+
+import '../../core/components/app_input.dart';
 import 'login.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -55,7 +56,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   'Have an account?',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                 ),
-                TextButton(onPressed: () {goTo(LogenView());}, child: Text('Login')),
+                TextButton(onPressed: () {goTo(LoginView());}, child: Text('Login')),
               ],
             ),
 

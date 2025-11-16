@@ -92,7 +92,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: CheckOutView(),
+        home: VerifyCode(),
       ),
     );
 

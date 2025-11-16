@@ -2,9 +2,10 @@ import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
-import '../../core/ui/app_input.dart';
+import '../../core/components/app_buttom.dart';
+import '../../core/components/app_image.dart';
+import '../../core/components/app_input.dart';
+
 
 class CreatePassword extends StatelessWidget {
   const CreatePassword({super.key});

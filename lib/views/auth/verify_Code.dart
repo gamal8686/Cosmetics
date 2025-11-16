@@ -1,11 +1,14 @@
+import 'package:amar_bakr/core/components/app_back.dart';
 import 'package:amar_bakr/core/logic/helper_methods.dart';
 import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../core/ui/app_image.dart';
-import '../../core/ui/app_buttom.dart';
+import '../../core/components/app_buttom.dart';
+import '../../core/components/app_image.dart';
+
+import '../../core/components/app_verify_code.dart';
 import 'account_activated_dailog.dart';
 
 class VerifyCode extends StatelessWidget {
@@ -14,19 +17,13 @@ class VerifyCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: GestureDetector(
-          onTap: () {},
-          child: CircleAvatar(
-            radius: 15,
-            child: AppImage(path: 'arrow_left.svg'),
-          ),
-        ),
-      ),
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(13.r),
         child: Column(
           children: [
+            SizedBox(height: 40.h),
+
+            AppBack(),
             AppImage(path: 'logo.png', height: 65.h, width: 65.w),
             SizedBox(height: 40.h),
             Text(
@@ -47,10 +44,11 @@ class VerifyCode extends StatelessWidget {
                     text: 'We just sent a 4-digit verification code to\n',
                   ),
                   TextSpan(
+                    locale: Locale('en'),
                     text: '+20 1022658997.',
                     style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 19.sp,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   TextSpan(text: 'Enter the code in the box\n'),
@@ -66,32 +64,8 @@ class VerifyCode extends StatelessWidget {
                 child: Text('Edit the number'),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 80.r, right: 80.r),
-              child: PinCodeTextField(
-                keyboardType: TextInputType.number,
+            AppVerifyCode(),
 
-                appContext: context,
-                cursorColor: Theme.of(context).primaryColor,
-
-                length: 4,
-                backgroundColor: Theme.of(
-                  context,
-                ).primaryColor.withValues(alpha: 0.040),
-                pinTheme: PinTheme(
-                  inactiveFillColor: Theme.of(context).primaryColor,
-
-                  selectedColor: Color(0xffD75D72),
-                  activeColor: Color(0xffD75D72),
-                  inactiveColor: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(8),
-
-                  fieldWidth: 45.w,
-                  fieldHeight: 45.h,
-                  shape: PinCodeFieldShape.box,
-                ),
-              ),
-            ),
             SizedBox(height: 40.h),
 
             Row(
