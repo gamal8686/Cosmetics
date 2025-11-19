@@ -52,9 +52,9 @@ class AppImage extends StatelessWidget {
         errorBuilder: (context, error, stackTrace) => Text('404'),
       );
     }
-    if (path.endsWith('lottes')) {
+    if (path.endsWith('json')) {
       return Lottie.asset(
-        'assets/lottes/$path',
+        'assets/lotties/$path',
         height: height,
         width: width,
         errorBuilder: (context, error, stackTrace) => Text('404'),

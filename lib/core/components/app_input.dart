@@ -8,6 +8,7 @@ class AppInpot extends StatefulWidget {
   final bool drobDowen;
   final bool ispassword;
   final bool iskeyboardType;
+  final bool isBourder;
 
   const AppInpot({
     super.key,
@@ -16,7 +17,7 @@ class AppInpot extends StatefulWidget {
     this.labol,
     this.ispassword = false,
     this.iskeyboardType = false,
-    //this.mycircular,
+    this.isBourder=false ,
   });
 
   @override
@@ -27,8 +28,6 @@ class _AppInpotState extends State<AppInpot> {
   final list = [10, 20, 30];
   late int selectedCauntryCod;
   bool ishedin = true;
-
-
 
   @override
   void initState() {
@@ -103,14 +102,14 @@ class _AppInpotState extends State<AppInpot> {
                           ),
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.r),
+                    borderRadius: BorderRadius.circular(8),
                   ),
 
                   labelText: widget.labol,
                   filled: true,
                   fillColor: Color(0xffD9D9D9),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(widget.isBourder ? 25.r : 8.r),
                   ),
                 ),
               ),

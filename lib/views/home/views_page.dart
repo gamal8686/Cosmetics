@@ -21,7 +21,7 @@ class _HomeviewState extends State<ViewHome> {
     _model(image: 'assets/icons/my_cart.svg', page: MyCardPage()),
     _model(image: 'assets/icons/profile.svg', page: ProfilePage()),
   ];
-  int currentIndex = 1;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

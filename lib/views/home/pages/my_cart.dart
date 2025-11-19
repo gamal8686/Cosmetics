@@ -132,13 +132,13 @@ class _itemsState extends State<_items> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 50.r),
+                margin: EdgeInsets.only(left: 30.r),
                 decoration: BoxDecoration(
                   border: Border.all(color: Color(0xff8E8EA9)),
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Row(
-mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
                       onPressed: () {

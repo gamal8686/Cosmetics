@@ -1,3 +1,4 @@
+import 'package:amar_bakr/core/components/app_back.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,14 +13,15 @@ class CheckOutView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {},
-            child: CircleAvatar(
-              backgroundColor: Color(0xff1010100D),
-              radius: 10,
-              child: AppImage(path: 'arrow_left.svg'),
-            ),
-          ),
+          leading: AppBack(),
+          // GestureDetector(
+          //   onTap: () {},
+          //   child: CircleAvatar(
+          //     backgroundColor: Color(0xff1010100D),
+          //     radius: 10,
+          //     child: AppImage(path: 'arrow_left.svg'),
+          //   ),
+          // ),
           title: Center(
             child: Text(
               'Checkout',

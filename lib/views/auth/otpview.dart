@@ -1,6 +1,5 @@
 import 'package:amar_bakr/core/components/app_back.dart';
 import 'package:amar_bakr/core/logic/helper_methods.dart';
-import 'package:amar_bakr/views/auth/password_created_dailog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -10,12 +9,15 @@ import '../../core/components/app_image.dart';
 
 import '../../core/components/app_verify_code.dart';
 import 'account_activated_dailog.dart';
+import 'create_password.dart';
 
 class VerifyCode extends StatelessWidget {
-  const VerifyCode({super.key});
+  final bool isFromCreateAccount;
+  const VerifyCode({super.key,  this.isFromCreateAccount=false});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(13.r),
@@ -91,11 +93,20 @@ class VerifyCode extends StatelessWidget {
 
               text: 'Done',
               onPressed: () {
-                showDialog(
-                  context: context,
-                  barrierColor: Colors.black.withValues(alpha: 0.4),
-                  builder: (context) => const AccountActivatedDailog(),
-                );
+                if(isFromCreateAccount){
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (_) => AccountActivatedDailog(),
+                  );
+
+
+                }else{
+                  goTo(CreatePasswordView());
+
+
+                }
+
               },
             ),
           ],

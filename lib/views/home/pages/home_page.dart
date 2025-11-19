@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20.h),
-              AppInpot(),
+              AppInpot(labol: 'Search',isBourder: true,),
               SizedBox(height: 13.h),
               Stack(
                 alignment: Alignment.center,

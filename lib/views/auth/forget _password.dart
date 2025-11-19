@@ -1,12 +1,12 @@
 import 'package:amar_bakr/core/components/app_back.dart';
+import 'package:amar_bakr/views/auth/otpview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/components/app_buttom.dart';
 import '../../core/components/app_image.dart';
 import '../../core/components/app_input.dart';
-
-
+import '../../core/logic/helper_methods.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -14,7 +14,6 @@ class ForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 50.r),
         child: Column(
@@ -45,7 +44,9 @@ class ForgetPassword extends StatelessWidget {
             Center(
               child: AppFieldButtom(
                 width: 270.w,
-                onPressed: () {},
+                onPressed: () {
+                  goTo(VerifyCode());
+                },
                 text: 'Next',
               ),
             ),

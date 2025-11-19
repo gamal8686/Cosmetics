@@ -4,8 +4,7 @@ import 'package:amar_bakr/views/auth/create_account.dart';
 import 'package:amar_bakr/views/auth/create_password.dart';
 import 'package:amar_bakr/views/auth/forget%20_password.dart';
 import 'package:amar_bakr/views/auth/login.dart';
-import 'package:amar_bakr/views/auth/password_created_dailog.dart';
-import 'package:amar_bakr/views/auth/verify_Code.dart';
+import 'package:amar_bakr/views/auth/otpview.dart';
 import 'package:amar_bakr/views/check_out.dart';
 import 'package:amar_bakr/views/home/pages/category_page.dart';
 import 'package:amar_bakr/views/home/pages/home_page.dart';
@@ -26,9 +25,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     Color primary = Color(0xff8E8EA9);
@@ -74,7 +73,7 @@ class MyApp extends StatelessWidget {
           ),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: Color(0xff5a669066).withValues(alpha: .40),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+          //  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
               borderSide: BorderSide(
@@ -92,7 +91,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: VerifyCode(),
+        home: Splashviews(),
       ),
     );
 

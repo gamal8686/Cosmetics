@@ -1,5 +1,5 @@
 import 'package:amar_bakr/core/logic/helper_methods.dart';
-import 'package:amar_bakr/views/auth/verify_Code.dart';
+import 'package:amar_bakr/views/auth/otpview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,7 +43,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 width: 270.w,
                 onPressed: () {
 
-                  goTo(VerifyCode());},
+                  goTo(VerifyCode(isFromCreateAccount: true),canPop: true);},
                 text: 'Next',
               ),
             ),

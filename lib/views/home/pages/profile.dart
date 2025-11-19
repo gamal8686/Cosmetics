@@ -61,7 +61,7 @@ class ProfilePage extends StatelessWidget {
           ),
           SizedBox(height: 34.h),
           Positioned(
-            top: 600,
+            top: 520,
             child: Container(
               padding: EdgeInsets.all(10.r),
               child: Row(
@@ -70,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(width: 8.w),
                   TextButton(
                     onPressed: () {
-                      goTo(CheckOutView());
+                      goTo(CheckOutView(),canPop: true);
                     },
 
                     child: Text(

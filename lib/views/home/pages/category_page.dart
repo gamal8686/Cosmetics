@@ -29,7 +29,7 @@ class CategoryPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12.h),
-              AppInpot(labol: 'Search', path: 'search.svg'),
+              AppInpot(labol: 'Search', path: 'search.svg',isBourder: true,),
               SizedBox(height: 12.h),
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
@@ -67,8 +67,13 @@ _item() {
           fontFamily: 'Montserrat',
         ),
       ),
-      SizedBox(width: 204.w),
-      Expanded(child: AppImage(path: 'arrow_right.png', height: 70.h, width: 70.w)),
+
+     Expanded(child: SizedBox(width: 290.w)),
+      GestureDetector(
+          onTap: () {
+
+          },
+          child: AppImage(path: 'arrow_right.png', height: 70.h, width: 70.w)),
     ],
   );
 }

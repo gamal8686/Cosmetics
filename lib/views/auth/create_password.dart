@@ -1,14 +1,17 @@
-import 'package:amar_bakr/views/auth/password_created_dailog.dart';
+import 'package:amar_bakr/core/logic/helper_methods.dart';
+import 'package:amar_bakr/views/auth/login.dart';
+import 'package:amar_bakr/views/auth/otpview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/components/app_buttom.dart';
 import '../../core/components/app_image.dart';
 import '../../core/components/app_input.dart';
+import 'account_activated_dailog.dart';
 
 
-class CreatePassword extends StatelessWidget {
-  const CreatePassword({super.key});
+class CreatePasswordView extends StatelessWidget {
+  const CreatePasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +37,17 @@ class CreatePassword extends StatelessWidget {
             ),
             SizedBox(height: 80.h),
 
-            AppInpot(labol: 'New password', ispassword: true),
+            AppInpot(labol: 'New password', ispassword: true,),
             AppInpot(labol: 'Confirm password', ispassword: true),
             SizedBox(height: 72.h),
             Center(
               child: AppFieldButtom(
                 width: 270,
                 onPressed: () {
+
                   showDialog(
                     context: context,
-                    barrierColor: Colors.black..withValues(alpha: 0.40),
-                    builder: (context) => const ScreenDialogPassword(),
+                    builder: (context) => const AccountActivatedDailog(isFromCreateAccount: true,),
                   );
                 },
                 text: 'Confirm',
@@ -59,7 +62,7 @@ class CreatePassword extends StatelessWidget {
                   'Have an account?',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                 ),
-                TextButton(onPressed: () {}, child: Text('Login')),
+                TextButton(onPressed: () {goTo(LoginView());}, child: Text('Login')),
               ],
             ),
           ],

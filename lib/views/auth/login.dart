@@ -1,4 +1,5 @@
 import 'package:amar_bakr/core/logic/helper_methods.dart';
+import 'package:amar_bakr/views/auth/otpview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,6 +7,7 @@ import '../../core/components/app_buttom.dart';
 import '../../core/components/app_image.dart';
 import '../../core/components/app_input.dart';
 
+import '../home/views_page.dart';
 import 'create_account.dart';
 import 'forget _password.dart';
 
@@ -84,7 +86,7 @@ class _LogenViewState extends State<LoginView> {
                 child: AppFieldButtom(
                     width: 268,
                     text: 'Login', onPressed: () {
-                      goTo(CreateAccount(),canPop: true);}),
+                      goTo(ViewHome(),canPop: false);}),
               ),
               SizedBox(height: 42.h),
               Row(
@@ -102,7 +104,7 @@ class _LogenViewState extends State<LoginView> {
                       goTo(CreateAccount());
                     },
                     child: Text(
-                      'Login',
+                      'Register',
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w600,
