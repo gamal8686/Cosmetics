@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,8 +6,16 @@ import '../../../core/components/app_image.dart';
 import '../../../core/components/app_input.dart';
 
 
-class CategoryPage extends StatelessWidget {
-  const CategoryPage({super.key});
+class CategoryPage extends StatefulWidget {
+
+  const CategoryPage({super.key,});
+
+  @override
+  State<CategoryPage> createState() => _CategoryPageState();
+}
+
+class _CategoryPageState extends State<CategoryPage> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +38,7 @@ class CategoryPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12.h),
-              AppInpot(labol: 'Search', path: 'search.svg',isBourder: true,),
+              AppInpot(labol: 'Search', path: 'search.svg', isBourder: true,),
               SizedBox(height: 12.h),
               ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
@@ -38,7 +47,7 @@ class CategoryPage extends StatelessWidget {
 
                 separatorBuilder: (context, index) => Divider(),
 
-                itemCount: 12,
+                itemCount: 3,
               ),
             ],
           ),
@@ -48,12 +57,14 @@ class CategoryPage extends StatelessWidget {
   }
 }
 
+
+
 _item() {
   return Row(
     children: [
       AppImage(
         path:
-            'https://tse3.mm.bing.net/th/id/OIP.CkwDRWW9BKHYSNhnUAqADwHaD_?cb=12ucfimg=1&w=520&h=280&rs=1&pid=ImgDetMain&o=7&rm=3',
+        'https://tse3.mm.bing.net/th/id/OIP.CkwDRWW9BKHYSNhnUAqADwHaD_?cb=12ucfimg=1&w=520&h=280&rs=1&pid=ImgDetMain&o=7&rm=3',
         height: 70.h,
         width: 70.w,
       ),
@@ -68,7 +79,7 @@ _item() {
         ),
       ),
 
-     Expanded(child: SizedBox(width: 290.w)),
+      Expanded(child: SizedBox(width: 290.w)),
       GestureDetector(
           onTap: () {
 
@@ -77,3 +88,20 @@ _item() {
     ],
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

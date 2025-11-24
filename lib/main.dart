@@ -18,6 +18,7 @@ import 'package:amar_bakr/views/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'apis/api_movies.dart';
 import 'core/logic/helper_methods.dart';
 
 void main() {
@@ -91,7 +92,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: Splashviews(),
+        home: MoviesView(),
       ),
     );
 
