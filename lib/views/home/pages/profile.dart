@@ -55,8 +55,7 @@ class ProfilePage extends StatelessWidget {
           ListView.builder(
 
             padding: EdgeInsets.symmetric(vertical: 250.h, horizontal: 10.w),
-            itemBuilder: (context, index) => item(index: index),
-            // separatorBuilder: (context, index) => Divider(),
+            itemBuilder: (context, index) => _Item(index: index),
             itemCount: model.length,
           ),
           SizedBox(height: 34.h),
@@ -92,10 +91,10 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class item extends StatelessWidget {
+class _Item extends StatelessWidget {
   final int index;
 
-  const item({super.key, required this.index});
+  const _Item({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +128,7 @@ class CardProfily {
   CardProfily(this.labol, this.labols);
 }
 
-List<CardProfily> model = [
+final model = [
 
   CardProfily(AppImage(path: 'edit_info.svg'), 'Edit Info'),
   CardProfily(AppImage(path: 'order-history.svg'), 'Order History'),

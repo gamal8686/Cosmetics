@@ -1,7 +1,8 @@
-import 'package:amar_bakr/core/components/app_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../core/components/app_image.dart';
 
 class MoviesView extends StatefulWidget {
   const MoviesView({super.key});
@@ -11,13 +12,13 @@ class MoviesView extends StatefulWidget {
 }
 
 class _MoviesViewState extends State<MoviesView> {
-  Movies? model;
+  MoviesData? model;
 
-  getData() async {
-    final dio = await Dio().get(
+ Future<void> getData() async {
+    final response = await Dio().get(
       'https://api.themoviedb.org/3/discover/movie?api_key=2001486a0f63e9e4ef9c4da157ef37cd',
     );
-    model = Movies.fromJson(dio.data);
+    model = MoviesData.fromJson(response.data);
 
     setState(() {});
   }
@@ -73,13 +74,13 @@ class _MoviesViewState extends State<MoviesView> {
   }
 }
 
-class Movies {
+class MoviesData {
   late final int page;
   late final List<Results> results;
   late final int totalPages;
   late final int totalResults;
 
-  Movies.fromJson(Map<String, dynamic> json) {
+  MoviesData.fromJson(Map<String, dynamic> json) {
     page = json['page'] ?? 0;
     results = List.from(
       json['results'] ?? [],

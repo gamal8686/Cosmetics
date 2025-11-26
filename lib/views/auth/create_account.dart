@@ -1,13 +1,14 @@
-import 'package:amar_bakr/core/logic/helper_methods.dart';
-import 'package:amar_bakr/views/auth/otpview.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_buttom.dart';
+import '../../core/components/app_button.dart';
 import '../../core/components/app_image.dart';
 
 import '../../core/components/app_input.dart';
-import 'login.dart';
+import '../../core/components/app_login_or_register.dart';
+import '../../core/logic/helper_methods.dart';
+import 'otp.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -33,13 +34,13 @@ class _CreateAccountState extends State<CreateAccount> {
             ),
             SizedBox(height: 50.h),
 
-            AppInpot(labol: 'Your Name'),
-            AppInpot(labol: 'Phone Number', drobDowen: true),
-            AppInpot(labol: 'Create your password', ispassword: true),
-            AppInpot(labol: 'Confirm password', ispassword: true),
+            AppInput(label: 'Your Name'),
+            AppInput(label: 'Phone Number', DropDown: true),
+            AppInput(label: 'Create your password', isPassword: true),
+            AppInput(label: 'Confirm password', isPassword: true),
             SizedBox(height: 90.h),
             Center(
-              child: AppFieldButtom(
+              child: AppButton(
                 width: 270.w,
                 onPressed: () {
 
@@ -48,17 +49,8 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
             ),
             SizedBox(height: 80.h),
+            AppLoginOrRegister(isLogin: false,),
 
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Have an account?',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-                ),
-                TextButton(onPressed: () {goTo(LoginView());}, child: Text('Login')),
-              ],
-            ),
 
 
           ],

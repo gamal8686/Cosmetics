@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppFieldButtom extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final String text;
   final double? width;
 final void Function() onPressed;
 
 
-  const AppFieldButtom({super.key,required this.text,required  this.onPressed, this.width});
+  const AppButton({super.key,required this.text,required  this.onPressed, this.width});
 
   @override
   Widget build(BuildContext context) {

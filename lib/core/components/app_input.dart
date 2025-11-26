@@ -3,36 +3,36 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_image.dart';
 
-class AppInpot extends StatefulWidget {
-  final String? path, labol;
-  final bool drobDowen;
-  final bool ispassword;
+class AppInput extends StatefulWidget {
+  final String? path, label;
+  final bool DropDown;
+  final bool isPassword;
   final bool iskeyboardType;
-  final bool isBourder;
+  final double isBourder;
 
-  const AppInpot({
+  const AppInput({
     super.key,
     this.path,
-    this.drobDowen = false,
-    this.labol,
-    this.ispassword = false,
+    this.DropDown = false,
+    this.label,
+    this.isPassword = false,
     this.iskeyboardType = false,
-    this.isBourder=false ,
+    this.isBourder=8,
   });
 
   @override
-  State<AppInpot> createState() => _AppInpotState();
+  State<AppInput> createState() => _AppInpotState();
 }
 
-class _AppInpotState extends State<AppInpot> {
+class _AppInpotState extends State<AppInput> {
   final list = [10, 20, 30];
-  late int selectedCauntryCod;
-  bool ishedin = true;
+  late int selectedCauntryCode;
+  bool isHiddn = true;
 
   @override
   void initState() {
     super.initState();
-    selectedCauntryCod = list.first;
+    selectedCauntryCode = list.first;
   }
 
   @override
@@ -43,7 +43,7 @@ class _AppInpotState extends State<AppInpot> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (widget.drobDowen)
+            if (widget.DropDown)
               Padding(
                 padding: EdgeInsetsDirectional.only(end: 10.r),
                 child: DecoratedBox(
@@ -61,14 +61,14 @@ class _AppInpotState extends State<AppInpot> {
                     ),
 
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    value: selectedCauntryCod,
+                    value: selectedCauntryCode,
                     items: list
                         .map(
                           (e) => DropdownMenuItem(value: e, child: Text('$e')),
                         )
                         .toList(),
                     onChanged: (value) {
-                      selectedCauntryCod = value!;
+                      selectedCauntryCode = value!;
                       setState(() {});
                     },
                   ),
@@ -80,36 +80,39 @@ class _AppInpotState extends State<AppInpot> {
                 keyboardType: widget.iskeyboardType
                     ? TextInputType.number
                     : TextInputType.name,
-                obscureText: widget.ispassword && ishedin ? true : false,
+                obscureText: widget.isPassword && isHiddn ? true : false,
                 decoration: InputDecoration(
                   suffixIcon: Padding(
                     padding: EdgeInsets.symmetric(),
-                    child: widget.ispassword
+                    child: widget.isPassword
                         ? IconButton(
                             onPressed: () {
-                              ishedin = !ishedin;
+                              isHiddn = !isHiddn;
                               setState(() {});
                             },
                             icon: AppImage(
-                              path: ishedin
+                              path: isHiddn
                                   ? 'visability_on.svg'
                                   : 'visability_off.svg',
                             ),
                           )
-                        : IconButton(
-                            onPressed: () {},
-                            icon: AppImage(path: 'search.svg'),
+                        : Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: AppImage(
+
+                          path: 'search.svg'),
+                        ),
                           ),
-                  ),
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
 
-                  labelText: widget.labol,
+                  labelText: widget.label,
                   filled: true,
                   fillColor: Color(0xffD9D9D9),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.isBourder ? 25.r : 8.r),
+                    borderRadius: BorderRadius.circular(widget.isBourder),
                   ),
                 ),
               ),

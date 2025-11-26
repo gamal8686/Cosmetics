@@ -1,25 +1,26 @@
+import 'package:cosmetics/core/components/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'pages/category_page.dart';
-import 'pages/home_page.dart';
+import 'pages/categories.dart';
+import 'pages/home.dart';
 import 'pages/my_cart.dart';
 import 'pages/profile.dart';
 
-class ViewHome extends StatefulWidget {
-  const ViewHome({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<ViewHome> createState() => _HomeviewState();
+  State<HomeView> createState() => _HomeviewState();
 }
 
-class _HomeviewState extends State<ViewHome> {
-  List<_model> pages = [
-    _model(image: 'assets/icons/home.svg', page: HomePage()),
-    _model(image: 'assets/icons/categories.svg', page: CategoryPage()),
-    _model(image: 'assets/icons/my_cart.svg', page: MyCardPage()),
-    _model(image: 'assets/icons/profile.svg', page: ProfilePage()),
+class _HomeviewState extends State<HomeView> {
+  final pages = [
+    _Model(image: 'home.svg', page: HomePage()),
+    _Model(image:  'categories.svg', page: CategoriesPage()),
+    _Model(image:  'my_cart.svg', page: MyCardPage()),
+    _Model(image: 'profile.svg', page: ProfilePage()),
   ];
   int currentIndex = 0;
 
@@ -63,10 +64,8 @@ class _HomeviewState extends State<ViewHome> {
             4,
             (index) => BottomNavigationBarItem(
               label: '',
-              icon: SvgPicture.asset(
-                pages[index].image,
-                color: currentIndex == index ? Color(0xffECA4C5) : null,
-              ),
+              icon:AppImage(path:   pages[index].image,
+                color: currentIndex == index ? Color(0xffECA4C5) : null,)
             ),
           ),
         ),
@@ -75,9 +74,9 @@ class _HomeviewState extends State<ViewHome> {
   }
 }
 
-class _model {
+class _Model {
   final String image;
   final Widget page;
 
-  _model({required this.image, required this.page});
+  _Model({required this.image, required this.page});
 }

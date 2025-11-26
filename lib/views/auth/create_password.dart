@@ -1,13 +1,13 @@
-import 'package:amar_bakr/core/logic/helper_methods.dart';
-import 'package:amar_bakr/views/auth/login.dart';
-import 'package:amar_bakr/views/auth/otpview.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_buttom.dart';
+import '../../core/components/app_button.dart';
 import '../../core/components/app_image.dart';
 import '../../core/components/app_input.dart';
-import 'account_activated_dailog.dart';
+import '../../core/logic/helper_methods.dart';
+import 'account_dailog.dart';
+import 'login.dart';
 
 
 class CreatePasswordView extends StatelessWidget {
@@ -37,11 +37,11 @@ class CreatePasswordView extends StatelessWidget {
             ),
             SizedBox(height: 80.h),
 
-            AppInpot(labol: 'New password', ispassword: true,),
-            AppInpot(labol: 'Confirm password', ispassword: true),
+            AppInput(label: 'New password', isPassword: true,),
+            AppInput(label: 'Confirm password', isPassword: true),
             SizedBox(height: 72.h),
             Center(
-              child: AppFieldButtom(
+              child: AppButton(
                 width: 270,
                 onPressed: () {
 

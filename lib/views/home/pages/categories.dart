@@ -6,61 +6,51 @@ import '../../../core/components/app_image.dart';
 import '../../../core/components/app_input.dart';
 
 
-class CategoryPage extends StatefulWidget {
+class CategoriesPage extends StatelessWidget {
 
-  const CategoryPage({super.key,});
-
-  @override
-  State<CategoryPage> createState() => _CategoryPageState();
-}
-
-class _CategoryPageState extends State<CategoryPage> {
-
+  const CategoriesPage({super.key,});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          padding: EdgeInsets.all(8.0.r),
+        body: Column(
 
-          child: Column(
-
-            children: [
-              Center(
-                child: Text(
-                  'Categories',
-                  style: TextStyle(
-                    color: Color(0xff434C6D),
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
+          children: [
+            Center(
+              child: Text(
+                'Categories',
+                style: TextStyle(
+                  color: Color(0xff434C6D),
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 12.h),
-              AppInpot(labol: 'Search', path: 'search.svg', isBourder: true,),
-              SizedBox(height: 12.h),
-              ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) => _item(),
+            ),
+            SizedBox(height: 12.h),
+            AppInput(label: 'Search', path: 'search.svg', isBourder: 25,),
+            SizedBox(height: 12.h),
+            Expanded(
+              child: ListView.separated(
+
+                itemBuilder: (context, index) => _Item(),
 
                 separatorBuilder: (context, index) => Divider(),
 
                 itemCount: 3,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-
-
-_item() {
-  return Row(
+  class _Item extends StatelessWidget {
+    @override
+    Widget build(BuildContext context){
+    return Row(
     children: [
       AppImage(
         path:
@@ -86,7 +76,12 @@ _item() {
           },
           child: AppImage(path: 'arrow_right.png', height: 70.h, width: 70.w)),
     ],
-  );
+  );}
+
+
+
+
+
 }
 
 

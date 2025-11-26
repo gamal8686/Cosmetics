@@ -12,16 +12,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+     body:  SafeArea(
+        child:  SingleChildScrollView(
           padding: EdgeInsets.all(8.0.r),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20.h),
-              AppInpot(labol: 'Search',isBourder: true,),
+              AppInput(label: 'Search',isBourder: 25,),
               SizedBox(height: 13.h),
               Stack(
                 alignment: Alignment.center,

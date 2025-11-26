@@ -1,14 +1,15 @@
-import 'package:amar_bakr/core/components/app_back.dart';
-import 'package:amar_bakr/core/logic/helper_methods.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../core/components/app_buttom.dart';
+import '../../core/components/app_back.dart';
+import '../../core/components/app_button.dart';
 import '../../core/components/app_image.dart';
 
 import '../../core/components/app_verify_code.dart';
-import 'account_activated_dailog.dart';
+import '../../core/logic/helper_methods.dart';
+import 'account_dailog.dart';
 import 'create_password.dart';
 
 class VerifyCode extends StatelessWidget {
@@ -88,7 +89,7 @@ class VerifyCode extends StatelessWidget {
             ),
 
             SizedBox(height: 116.h),
-            AppFieldButtom(
+            AppButton(
               width: 270.w,
 
               text: 'Done',

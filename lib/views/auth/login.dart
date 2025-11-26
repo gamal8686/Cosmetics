@@ -1,24 +1,20 @@
-import 'package:amar_bakr/core/logic/helper_methods.dart';
-import 'package:amar_bakr/views/auth/otpview.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_buttom.dart';
+import '../../core/components/app_button.dart';
 import '../../core/components/app_image.dart';
 import '../../core/components/app_input.dart';
 
-import '../home/views_page.dart';
+import '../../core/components/app_login_or_register.dart';
+import '../../core/logic/helper_methods.dart';
+import '../home/views.dart';
 import 'create_account.dart';
 import 'forget _password.dart';
 
-class LoginView extends StatefulWidget {
+class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
-  @override
-  State<LoginView> createState() => _LogenViewState();
-}
-
-class _LogenViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,18 +48,18 @@ class _LogenViewState extends State<LoginView> {
                 ),
               ),
               SizedBox(height: 25.h),
-              AppInpot(
+              AppInput(
                 iskeyboardType: true,
-                drobDowen: true,
-                labol: 'Phone Number',
+                DropDown: true,
+                label: 'Phone Number',
               ),
-              AppInpot(
+              AppInput(
 
                 iskeyboardType: true,
 
-                labol: 'Your Password',
+                label: 'Your Password',
                 path: 'arrow_down.svg',
-                ispassword: true,
+                isPassword: true,
               ),
               Align(
                 alignment: Alignment.centerRight,
@@ -83,36 +79,14 @@ class _LogenViewState extends State<LoginView> {
               SizedBox(height: 42.h),
 
               Center(
-                child: AppFieldButtom(
+                child: AppButton(
                     width: 268,
                     text: 'Login', onPressed: () {
-                      goTo(ViewHome(),canPop: false);}),
+                      goTo(HomeView(),canPop: false);}),
               ),
               SizedBox(height: 42.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Have an account?',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      goTo(CreateAccount());
-                    },
-                    child: Text(
-                      'Register',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+             AppLoginOrRegister(),
+
             ],
           ),
         ),

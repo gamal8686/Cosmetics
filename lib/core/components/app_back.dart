@@ -1,10 +1,11 @@
 
 
 
-import 'package:amar_bakr/core/components/app_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_image.dart';
 
 class AppBack extends StatelessWidget {
   const AppBack({super.key});

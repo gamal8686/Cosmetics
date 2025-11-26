@@ -8,77 +8,73 @@ class MyCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-
-      child: Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Text(
-              'My Cart',
-              style: TextStyle(
-                color: Color(0xff434C6D),
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w700,
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            'My Cart',
+            style: TextStyle(
+              color: Color(0xff434C6D),
+              fontSize: 24.sp,
+              fontWeight: FontWeight.w700,
             ),
           ),
-          actions: [
-            Padding(
-              padding:  EdgeInsets.all(10.0.r),
-              child: AppImage(path: 'cart_on_category.svg'),
-            ),
-          ],
         ),
+        actions: [
+          Padding(
+            padding:  EdgeInsets.all(10.0.r),
+            child: AppImage(path: 'cart_on_category.svg'),
+          ),
+        ],
+      ),
 
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 24.h),
-              Padding(
-                padding:  EdgeInsets.all(5.0.r),
-                child: Column(
-                  children: [
-                    SizedBox(height: 8.h),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'You have 4 products in your cart',
-                        style: TextStyle(
-                          color: Color(0xff434C6D).withValues(alpha: .55),
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+      body: Column(
+        children: [
+          SizedBox(height: 24.h),
+          Padding(
+            padding:  EdgeInsets.all(5.0.r),
+            child: Column(
+              children: [
+                SizedBox(height: 8.h),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'You have 4 products in your cart',
+                    style: TextStyle(
+                      color: Color(0xff434C6D).withValues(alpha: .55),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 5.h),
-
-              ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) =>
-                    Padding(padding:  EdgeInsets.all(10.r), child: _items()),
-                separatorBuilder: (context, index) => Divider(),
-                itemCount: 12,
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+          SizedBox(height: 5.h),
+
+          Expanded(
+            child: ListView.separated(
+
+              itemBuilder: (context, index) =>
+                  Padding(padding:  EdgeInsets.all(10.r), child: _Item()),
+              separatorBuilder: (context, index) => Divider(),
+              itemCount: 12,
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _items extends StatefulWidget {
-  const _items();
+class _Item extends StatefulWidget {
+  const _Item();
 
   @override
-  State<_items> createState() => _itemsState();
+  State<_Item> createState() => _ItemState();
 }
 
-class _itemsState extends State<_items> {
+class _ItemState extends State<_Item> {
   int counter = 0;
 
   @override

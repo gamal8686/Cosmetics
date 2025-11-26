@@ -1,20 +1,13 @@
 
-import 'package:amar_bakr/views/auth/account_activated_dailog.dart';
-import 'package:amar_bakr/views/auth/create_account.dart';
-import 'package:amar_bakr/views/auth/create_password.dart';
-import 'package:amar_bakr/views/auth/forget%20_password.dart';
-import 'package:amar_bakr/views/auth/login.dart';
-import 'package:amar_bakr/views/auth/otpview.dart';
-import 'package:amar_bakr/views/check_out.dart';
-import 'package:amar_bakr/views/home/pages/category_page.dart';
-import 'package:amar_bakr/views/home/pages/home_page.dart';
-import 'package:amar_bakr/views/home/pages/my_cart.dart';
-import 'package:amar_bakr/views/home/pages/profile.dart';
-import 'package:amar_bakr/views/on_boarding.dart';
-import 'package:amar_bakr/views/home/views_page.dart';
-import 'package:amar_bakr/views/splash.dart';
 
 
+import 'package:cosmetics/views/auth/create_account.dart';
+import 'package:cosmetics/views/auth/login.dart';
+import 'package:cosmetics/views/check_out.dart';
+import 'package:cosmetics/views/home/pages/categories.dart';
+import 'package:cosmetics/views/home/pages/home.dart';
+import 'package:cosmetics/views/home/views.dart';
+import 'package:cosmetics/views/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,9 +24,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primary = Color(0xff8E8EA9);
-    final MaterialColor primarySwatch =
-        MaterialColor(primary.value, <int, Color>{
+    final primary = Color(0xff8E8EA9);
+    final  primarySwatch =
+        MaterialColor(primary.value, {
           50: primary.withOpacity(.1),
           100: primary.withOpacity(.2),
           200: primary.withOpacity(.3),
@@ -67,14 +60,13 @@ class MyApp extends StatelessWidget {
             style: FilledButton.styleFrom(
               fixedSize: Size.fromHeight(65.h),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40.r), // 🔹 الزوايا الدائرية
+                borderRadius: BorderRadius.circular(40.r),
               ),
               backgroundColor: Color(0xffD75D72),
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: Color(0xff5a669066).withValues(alpha: .40),
-          //  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
               borderSide: BorderSide(
@@ -92,11 +84,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: MoviesView(),
+        home: CheckOutView(),
       ),
     );
 
-    // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
 
