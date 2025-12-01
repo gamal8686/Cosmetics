@@ -6,11 +6,16 @@ import '../../views/auth/create_account.dart';
 import '../../views/auth/login.dart';
 import '../logic/helper_methods.dart';
 
-class AppLoginOrRegister extends StatelessWidget {
+class AppLoginOrRegister extends StatefulWidget {
   final bool isLogin;
 
   const AppLoginOrRegister({super.key, this.isLogin = true});
 
+  @override
+  State<AppLoginOrRegister> createState() => _AppLoginOrRegisterState();
+}
+
+class _AppLoginOrRegisterState extends State<AppLoginOrRegister> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,7 +24,7 @@ class AppLoginOrRegister extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: isLogin ? "Don’t have an account?" : "Have an account?",
+              text: widget.isLogin ? "Don’t have an account?" : "Have an account?",
               style: TextStyle(
                 color: Color(0xff434C6D),
                 fontWeight: FontWeight.w400,
@@ -34,7 +39,7 @@ class AppLoginOrRegister extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 2),
                 ),
                 child: Text(
-                  isLogin ? "Register" : "Login",
+                  widget.isLogin ? "Register" : "Login",
                   style: TextStyle(
                     color: Color(0xffD75D72),
                     fontSize: 12.sp,
@@ -43,7 +48,7 @@ class AppLoginOrRegister extends StatelessWidget {
                 ),
 
                 onPressed: () {
-                  if (isLogin) {
+                  if (widget.isLogin) {
                     goTo(CreateAccount());
 
 
