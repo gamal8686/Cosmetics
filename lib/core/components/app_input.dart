@@ -7,8 +7,8 @@ class AppInput extends StatefulWidget {
   final String? path, label;
   final bool DropDown;
   final bool isPassword;
-  final bool iskeyboardType;
-  final double isBourder;
+  final bool isKeyboardType;
+  final double isBorder;
 
   const AppInput({
     super.key,
@@ -16,8 +16,8 @@ class AppInput extends StatefulWidget {
     this.DropDown = false,
     this.label,
     this.isPassword = false,
-    this.iskeyboardType = false,
-    this.isBourder=8,
+    this.isKeyboardType = false,
+    this.isBorder=8,
   });
 
   @override
@@ -77,7 +77,7 @@ class _AppInpotState extends State<AppInput> {
 
             Expanded(
               child: TextFormField(
-                keyboardType: widget.iskeyboardType
+                keyboardType: widget.isKeyboardType
                     ? TextInputType.number
                     : TextInputType.name,
                 obscureText: widget.isPassword && isHiddn ? true : false,
@@ -92,8 +92,8 @@ class _AppInpotState extends State<AppInput> {
                             },
                             icon: AppImage(
                               path: isHiddn
-                                  ? 'visability_on.svg'
-                                  : 'visability_off.svg',
+                                  ? 'visibility_on.svg'
+                                  : 'visibility_off.svg',
                             ),
                           )
                         : Padding(
@@ -112,7 +112,7 @@ class _AppInpotState extends State<AppInput> {
                   filled: true,
                   fillColor: Color(0xffD9D9D9),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.isBourder),
+                    borderRadius: BorderRadius.circular(widget.isBorder),
                   ),
                 ),
               ),

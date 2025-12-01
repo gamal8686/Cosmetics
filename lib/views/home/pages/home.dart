@@ -5,23 +5,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/components/app_image.dart';
 import '../../../core/components/app_input.dart';
 
-
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body:  SafeArea(
-        child:  SingleChildScrollView(
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: EdgeInsets.all(8.0.r),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20.h),
-              AppInput(label: 'Search',isBourder: 25,),
+              AppInput(label: 'Search', isBorder: 25),
               SizedBox(height: 13.h),
               Stack(
                 alignment: Alignment.center,
@@ -104,20 +102,19 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 14.h),
-              Container(
-                child: GridView.builder(
-                  itemCount: 10,
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 12,
-                    childAspectRatio: 176 / 237,
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 12,
-                  ),
 
-                  itemBuilder: (context, index) => items(),
+              GridView.builder(
+                itemCount: 10,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 176 / 237,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 12,
                 ),
+
+                itemBuilder: (context, index) => _items(),
               ),
             ],
           ),
@@ -127,7 +124,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-items() {
+_items() {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -171,7 +168,7 @@ items() {
 
                     child: Center(
                       child: AppImage(
-                        path: 'car_categores.svg',
+                        path: 'car_categories.svg',
                         height: 16.h,
                         width: 16.w,
                       ),

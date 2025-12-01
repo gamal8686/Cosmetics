@@ -1,7 +1,6 @@
 import 'package:cosmetics/core/components/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'pages/categories.dart';
 import 'pages/home.dart';

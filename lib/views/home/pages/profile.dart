@@ -56,11 +56,11 @@ class ProfilePage extends StatelessWidget {
 
             padding: EdgeInsets.symmetric(vertical: 250.h, horizontal: 10.w),
             itemBuilder: (context, index) => _Item(index: index),
-            itemCount: model.length,
+            itemCount: _model.length,
           ),
           SizedBox(height: 34.h),
           Positioned(
-            top: 520,
+            top: 600,
             child: Container(
               padding: EdgeInsets.all(10.r),
               child: Row(
@@ -94,7 +94,7 @@ class ProfilePage extends StatelessWidget {
 class _Item extends StatelessWidget {
   final int index;
 
-  const _Item({super.key, required this.index});
+  const _Item({required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -103,10 +103,10 @@ class _Item extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       child: Row(
         children: [
-          model[index].labol,
+          _model[index].label,
           SizedBox(width: 3.w),
           Text(
-            model[index].labols,
+            _model[index].labels,
             style: TextStyle(
               fontSize: 13.sp,
               fontWeight: FontWeight.w600,
@@ -121,18 +121,18 @@ class _Item extends StatelessWidget {
   }
 }
 
-class CardProfily {
-  final Widget labol;
-  final String labols;
+class CardProfile {
+  final Widget label;
+  final String labels;
 
-  CardProfily(this.labol, this.labols);
+  CardProfile(this.label, this.labels);
 }
 
-final model = [
+final _model = [
 
-  CardProfily(AppImage(path: 'edit_info.svg'), 'Edit Info'),
-  CardProfily(AppImage(path: 'order-history.svg'), 'Order History'),
-  CardProfily(AppImage(path: 'wallet.svg'), 'Wallet'),
-  CardProfily(AppImage(path: 'setting.svg'), 'Settings'),
-  CardProfily(AppImage(path: 'discount.svg'),'Voucher'),
+  CardProfile(AppImage(path: 'edit_info.svg'), 'Edit Info'),
+  CardProfile(AppImage(path: 'order-history.svg'), 'Order History'),
+  CardProfile(AppImage(path: 'wallet.svg'), 'Wallet'),
+  CardProfile(AppImage(path: 'setting.svg'), 'Settings'),
+  CardProfile(AppImage(path: 'discount.svg'),'Voucher'),
 ];

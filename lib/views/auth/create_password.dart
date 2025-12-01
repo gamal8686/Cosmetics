@@ -47,7 +47,7 @@ class CreatePasswordView extends StatelessWidget {
 
                   showDialog(
                     context: context,
-                    builder: (context) => const AccountActivatedDailog(isFromCreateAccount: true,),
+                    builder: (context) => const AccountActivatedDialog(isFromCreateAccount: true,),
                   );
                 },
                 text: 'Confirm',

@@ -4,13 +4,13 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 
 final navKey = GlobalKey<NavigatorState>();
- goTo(Widget page, {bool canPop = false, int? delayInsacand}) {
+ goTo(Widget page, {bool canPop = false, int? delayDuration}) {
  void action(){ Navigator.pushAndRemoveUntil(
     navKey.currentContext!,
     MaterialPageRoute(builder: (context) => page),
     (route) => canPop);}
- if (delayInsacand != null) {
-   Timer(Duration(seconds: delayInsacand), () {
+ if (delayDuration != null) {
+   Timer(Duration(seconds: delayDuration), () {
      action();
    });
  } else {

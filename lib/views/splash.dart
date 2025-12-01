@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:animate_do/animate_do.dart';
 
@@ -9,17 +8,18 @@ import '../core/components/app_image.dart';
 import '../core/logic/helper_methods.dart';
 import 'on_boarding.dart';
 
-class Splashviews extends StatefulWidget {
-  const Splashviews({super.key});
+class SplashViews extends StatefulWidget {
+  const SplashViews({super.key});
 
   @override
-  State<Splashviews> createState() => _SplashviewsState();
+  State<SplashViews> createState() => _SplashViewsState();
 }
 
-class _SplashviewsState extends State<Splashviews> {
+class _SplashViewsState extends State<SplashViews> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () => goTo(OnBoardingView()));
+    super.initState();
+    goTo(OnBoardingView(), delayDuration: 3);
   }
 
   @override
@@ -30,8 +30,9 @@ class _SplashviewsState extends State<Splashviews> {
           mainAxisSize: MainAxisSize.min,
           children: [
             SpinPerfect(
-                duration: Duration(seconds: 4),
-                child: AppImage(path: 'logo.png')),
+              duration: Duration(seconds: 4),
+              child: AppImage(path: 'logo.png'),
+            ),
             SizedBox(height: 16.h),
             AppImage(path: 'splash_txt.png'),
           ],

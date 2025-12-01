@@ -9,7 +9,6 @@ import '../../core/components/app_input.dart';
 import '../../core/components/app_login_or_register.dart';
 import '../../core/logic/helper_methods.dart';
 import '../home/views.dart';
-import 'create_account.dart';
 import 'forget _password.dart';
 
 class LoginView extends StatelessWidget {
@@ -49,13 +48,14 @@ class LoginView extends StatelessWidget {
               ),
               SizedBox(height: 25.h),
               AppInput(
-                iskeyboardType: true,
+                isPassword: true,
+                isKeyboardType: true,
                 DropDown: true,
                 label: 'Phone Number',
               ),
               AppInput(
 
-                iskeyboardType: true,
+                isKeyboardType: true,
 
                 label: 'Your Password',
                 path: 'arrow_down.svg',
@@ -65,7 +65,7 @@ class LoginView extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    goTo(ForgetPassword(),canPop: true);
+                    goTo(ForgetPasswordView(),canPop: true);
                   },
                   child: Text(
                     'Forget Password?',

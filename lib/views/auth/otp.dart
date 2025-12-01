@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../core/components/app_back.dart';
 import '../../core/components/app_button.dart';
@@ -98,7 +97,7 @@ class VerifyCode extends StatelessWidget {
                   showDialog(
                     context: context,
                     barrierDismissible: false,
-                    builder: (_) => AccountActivatedDailog(),
+                    builder: (_) => AccountActivatedDialog(),
                   );
 
 

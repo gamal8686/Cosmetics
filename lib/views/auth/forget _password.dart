@@ -9,8 +9,8 @@ import '../../core/components/app_input.dart';
 import '../../core/logic/helper_methods.dart';
 import 'otp.dart';
 
-class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
+class ForgetPasswordView extends StatelessWidget {
+  const ForgetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {

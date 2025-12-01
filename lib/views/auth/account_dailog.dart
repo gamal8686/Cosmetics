@@ -8,10 +8,10 @@ import '../../core/logic/helper_methods.dart';
 import '../home/views.dart';
 import 'login.dart';
 
-class AccountActivatedDailog extends StatelessWidget {
+class AccountActivatedDialog extends StatelessWidget {
   final bool isFromCreateAccount;
 
-  const AccountActivatedDailog({super.key, this.isFromCreateAccount = false});
+  const AccountActivatedDialog({super.key, this.isFromCreateAccount = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AccountActivatedDailog extends StatelessWidget {
           margin: EdgeInsetsDirectional.all(15.r),
           child: Column(
             children: [
-              AppImage(path: 'SuccessCheck.json', height: 100.h, width: 100.w),
+              AppImage(path: 'success_check.json', height: 100.h, width: 100.w),
 
               SizedBox(height: 10.h),
               Padding(

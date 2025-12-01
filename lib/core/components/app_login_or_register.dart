@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -51,15 +50,11 @@ class _AppLoginOrRegisterState extends State<AppLoginOrRegister> {
                 onPressed: () {
                   if (widget.isLogin) {
                     goTo(CreateAccount());
-                    setState(() {
 
-                    });
 
                   } else {
                     goTo(LoginView());
-                    setState(() {
 
-                    });
                   }
                 },
               ),

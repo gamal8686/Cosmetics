@@ -23,7 +23,7 @@ class MyCardPage extends StatelessWidget {
         actions: [
           Padding(
             padding:  EdgeInsets.all(10.0.r),
-            child: AppImage(path: 'cart_on_category.svg'),
+            child: AppImage(path: 'car_categories.svg'),
           ),
         ],
       ),

@@ -1,7 +1,6 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../core/components/app_back.dart';
 import '../core/components/app_image.dart';

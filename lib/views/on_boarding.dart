@@ -9,11 +9,10 @@ class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
   @override
-  State<OnBoardingView> createState() => _onpordengviewState();
+  State<OnBoardingView> createState() => _onpordengViewState();
 }
 
-class _onpordengviewState extends State<OnBoardingView> {
- // final islast= counterindex == 2;
+class _onpordengViewState extends State<OnBoardingView> {
   final List = [
     _model(
       image: 'on_boarding1.png',
@@ -34,11 +33,12 @@ class _onpordengviewState extends State<OnBoardingView> {
     ),
   ];
 
-  int counterindex = 0;
+  int counterIndex = 0;
 
-  goToLogin(){
-    goTo(LoginView(),canPop: false);
+  goToLogin() {
+    goTo(LoginView(), canPop: false);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,52 +49,52 @@ class _onpordengviewState extends State<OnBoardingView> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if( counterindex < 2)
-              Align(
-                alignment: Alignment.topRight,
-                child: TextButton(
-                  onPressed:  goToLogin,
-                  child: Text(
-                    'Skip',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff434C6D),
+              if (counterIndex < 2)
+                Align(
+                  alignment: Alignment.topRight,
+                  child: TextButton(
+                    onPressed: goToLogin,
+                    child: Text(
+                      'Skip',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff434C6D),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              AppImage(path: List[counterindex].image),
+              AppImage(path: List[counterIndex].image),
               SizedBox(height: 25.h),
               Text(
-                List[counterindex].titel,
+                List[counterIndex].titel,
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w900),
               ),
               SizedBox(height: 25.h),
 
               Text(
-                List[counterindex].desc,
-                style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.w400),
+                List[counterIndex].desc,
+                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 30.h),
 
-              counterindex == 2
+              counterIndex == 2
                   ? FilledButton(
-
                       style: FilledButton.styleFrom(
-                          backgroundColor: Color(0xff434C6D),
-                          fixedSize: Size(268, 60)),
+                        backgroundColor: Color(0xff434C6D),
+                        fixedSize: Size(268, 60),
+                      ),
                       onPressed: () {
-                   goToLogin();
+                        goToLogin();
                       },
                       child: AppImage(path: 'arrow_right.svg'),
                     )
                   : FloatingActionButton(
                       backgroundColor: Color(0xff434C6D),
                       onPressed: () {
-                        if (counterindex < 2) {
-                          counterindex++;
+                        if (counterIndex < 2) {
+                          counterIndex++;
                           setState(() {});
                         } else {
                           goToLogin();

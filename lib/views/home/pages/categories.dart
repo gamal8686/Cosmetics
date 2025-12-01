@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,7 +27,7 @@ class CategoriesPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12.h),
-            AppInput(label: 'Search', path: 'search.svg', isBourder: 25,),
+            AppInput(label: 'Search', path: 'search.svg', isBorder: 25,),
             SizedBox(height: 12.h),
             Expanded(
               child: ListView.separated(
@@ -37,7 +36,7 @@ class CategoriesPage extends StatelessWidget {
 
                 separatorBuilder: (context, index) => Divider(),
 
-                itemCount: 3,
+                itemCount: 5,
               ),
             ),
           ],

@@ -10,14 +10,9 @@ import '../../core/components/app_login_or_register.dart';
 import '../../core/logic/helper_methods.dart';
 import 'otp.dart';
 
-class CreateAccount extends StatefulWidget {
+class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});
 
-  @override
-  State<CreateAccount> createState() => _CreateAccountState();
-}
-
-class _CreateAccountState extends State<CreateAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
