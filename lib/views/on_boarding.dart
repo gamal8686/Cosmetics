@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/logic/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,10 +10,10 @@ class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
   @override
-  State<OnBoardingView> createState() => _onpordengViewState();
+  State<OnBoardingView> createState() => OnBoardingViewState();
 }
 
-class _onpordengViewState extends State<OnBoardingView> {
+class OnBoardingViewState extends State<OnBoardingView> {
   final List = [
     _model(
       image: 'on_boarding1.png',
@@ -36,7 +37,8 @@ class _onpordengViewState extends State<OnBoardingView> {
   int counterIndex = 0;
 
   goToLogin() {
-    goTo(LoginView(), canPop: false);
+CashHelper.setIsNotFirst();
+    goTo( LoginView(), canPop: false);
   }
 
   @override

@@ -6,8 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/logic/helper_methods.dart';
+import 'core/logic/shared_preferences.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+await CashHelper.init();
   runApp(const MyApp());
 }
 

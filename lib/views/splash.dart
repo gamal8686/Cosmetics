@@ -1,5 +1,7 @@
 
 import 'package:animate_do/animate_do.dart';
+import 'package:cosmetics/core/logic/shared_preferences.dart';
+import 'package:cosmetics/views/auth/login.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +21,8 @@ class _SplashViewsState extends State<SplashViews> {
   @override
   void initState() {
     super.initState();
-    goTo(OnBoardingView(), delayDuration: 3);
+
+    goTo(CashHelper.getIsNotFirst? OnBoardingView():LoginView(), delayDuration: 3);
   }
 
   @override
