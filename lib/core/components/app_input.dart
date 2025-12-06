@@ -4,11 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_image.dart';
 
 class AppInput extends StatefulWidget {
+  final TextEditingController? controller;
+  final void Function(String)? onSelectedCountryCode;
+  final String? Function(String?)? validator;
   final String? path, label;
   final bool DropDown;
   final bool isPassword;
   final bool isKeyboardType;
   final double isBorder;
+  final bool? isLottieControlled;
 
   const AppInput({
     super.key,
@@ -17,7 +21,11 @@ class AppInput extends StatefulWidget {
     this.label,
     this.isPassword = false,
     this.isKeyboardType = false,
-    this.isBorder=8,
+    this.isBorder = 8,
+    this.controller,
+    this.onSelectedCountryCode,
+    this.validator,
+    this.isLottieControlled,
   });
 
   @override
@@ -25,14 +33,15 @@ class AppInput extends StatefulWidget {
 }
 
 class _AppInpotState extends State<AppInput> {
-  final list = [10, 20, 30];
-  late int selectedCauntryCode;
-  bool isHiddn = true;
+  final list = ['10', '20', '30'];
+  late String selectedCountryCode;
+  bool isHidden = true;
 
   @override
   void initState() {
     super.initState();
-    selectedCauntryCode = list.first;
+    selectedCountryCode = list.first;
+    widget.onSelectedCountryCode?.call(selectedCountryCode);
   }
 
   @override
@@ -41,7 +50,7 @@ class _AppInpotState extends State<AppInput> {
       child: Padding(
         padding: EdgeInsets.only(bottom: 16.r),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (widget.DropDown)
               Padding(
@@ -54,21 +63,22 @@ class _AppInpotState extends State<AppInput> {
                     border: Border.all(),
                     borderRadius: BorderRadius.circular(8.r),
                   ),
-                  child: DropdownButton<int>(
+                  child: DropdownButton<String>(
                     icon: Padding(
                       padding: EdgeInsetsDirectional.only(start: 4.r),
                       child: AppImage(path: 'arrow_down.svg'),
                     ),
 
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    value: selectedCauntryCode,
+                    value: selectedCountryCode,
                     items: list
                         .map(
                           (e) => DropdownMenuItem(value: e, child: Text('$e')),
                         )
                         .toList(),
                     onChanged: (value) {
-                      selectedCauntryCode = value!;
+                      selectedCountryCode = value!;
+                      widget.onSelectedCountryCode?.call!(selectedCountryCode);
                       setState(() {});
                     },
                   ),
@@ -77,32 +87,30 @@ class _AppInpotState extends State<AppInput> {
 
             Expanded(
               child: TextFormField(
+                validator: widget.validator,
+                controller: widget.controller,
                 keyboardType: widget.isKeyboardType
                     ? TextInputType.number
                     : TextInputType.name,
-                obscureText: widget.isPassword && isHiddn ? true : false,
+                obscureText: widget.isPassword && isHidden,
                 decoration: InputDecoration(
-                  suffixIcon: Padding(
-                    padding: EdgeInsets.symmetric(),
-                    child: widget.isPassword
-                        ? IconButton(
-                            onPressed: () {
-                              isHiddn = !isHiddn;
-                              setState(() {});
-                            },
-                            icon: AppImage(
-                              path: isHiddn
-                                  ? 'visibility_on.svg'
-                                  : 'visibility_off.svg',
-                            ),
-                          )
-                        : Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: AppImage(
+                  suffixIcon:
+                  widget.isPassword
+                      ?  Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: AppImage(
+                              isLottieControlled: (p0) {
+                                isHidden=!isHidden;
+                                setState(() {
 
-                          path: 'search.svg'),
-                        ),
+                                });
+                              },
+                              height: 30,
+                              path: 'password_view.json',
+
                           ),
+                      )
+                      : null,
 
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),

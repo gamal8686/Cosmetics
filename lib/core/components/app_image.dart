@@ -2,65 +2,106 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 
-class AppImage extends StatelessWidget {
+class AppImage extends StatefulWidget {
   final String path;
   final double? height, width;
   final BoxFit? fit;
   final Color? color;
+  final void Function(bool)? isLottieControlled;
 
   const AppImage({
     super.key,
     required this.path,
     this.height,
     this.width,
-    this.fit = BoxFit.cover, this.color,
+    this.fit = BoxFit.cover,
+    this.color,
+    this.isLottieControlled,
   });
 
   @override
-  Widget build(BuildContext context) {
-    if (path.startsWith('http')) {
-      return Image.network(
-        path,
-        height: height,
-        width: width,
-        fit: fit,
-        errorBuilder: (context, error, stackTrace) => Text('000'),
+  State<AppImage> createState() => _AppImageState();
+}
 
+class _AppImageState extends State<AppImage>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 3),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.path.startsWith('http')) {
+      return Image.network(
+        widget.path,
+        height: widget.height,
+        width: widget.width,
+        fit: widget.fit,
+        errorBuilder: (context, error, stackTrace) => Text('000'),
       );
     }
-    if (path.endsWith('png')) {
+    if (widget.path.endsWith('png')) {
       return Image.asset(
-        'assets/images/$path',
-        height: height,
-        width: width,
+        'assets/images/${widget.path}',
+        height: widget.height,
+        width: widget.width,
         errorBuilder: (context, error, stackTrace) => Text('55'),
       );
     }
-    if (path.endsWith('svg')) {
+    if (widget.path.endsWith('svg')) {
       return SvgPicture.asset(
-        'assets/icons/$path',
-        height: height,
-        width: width,
-        color: color,
+        'assets/icons/${widget.path}',
+        height: widget.height,
+        width: widget.width,
+        color: widget.color,
         errorBuilder: (context, error, stackTrace) => Text('404'),
       );
     }
-    if (path.endsWith('jpg')) {
+    if (widget.path.endsWith('jpg')) {
       return Image.asset(
-        'assets/images/$path',
-        height: height,
-        width: width,
+        'assets/images/${widget.path}',
+        height: widget.height,
+        width: widget.width,
         errorBuilder: (context, error, stackTrace) => Text('22'),
       );
-    }
-    if (path.endsWith('json')) {
-      return Lottie.asset(
-        'assets/lotties/$path',
-        height: height,
-        width: width,
-        errorBuilder: (context, error, stackTrace) => Text('404'),
-      );
-    } else {
+    } else if (widget.path.endsWith('json')) {
+      if (widget.isLottieControlled != null) {
+        return GestureDetector(
+          onTap: () {
+            if (_controller.isCompleted) {
+              _controller.reverse();
+
+              //widget.isLottieControlled?.call();
+            } else {
+              _controller.forward();
+              // widget.isLottieControlled?.call();
+            }
+          },
+
+          child: Lottie.asset(
+            'assets/lottie/${widget.path}',
+            height: widget.height,
+            width: widget.width,
+            controller: _controller,
+            errorBuilder: (context, error, stackTrace) => Text('404'),
+          ),
+        );
+      } else{
+        return Lottie.asset(
+          'assets/lottie/${widget.path}',
+          height: widget.height,
+          width: widget.width,
+          controller: _controller,
+          fit: widget.fit,);
+
+    } }else {
       return Text('22');
     }
   }

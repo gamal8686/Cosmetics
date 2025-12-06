@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,11 +44,8 @@ class AppLoginOrRegister extends StatelessWidget {
                 onPressed: () {
                   if (isLogin) {
                     goTo(CreateAccount());
-
-
                   } else {
                     goTo(LoginView());
-
                   }
                 },
               ),
@@ -60,4 +56,3 @@ class AppLoginOrRegister extends StatelessWidget {
     );
   }
 }
-

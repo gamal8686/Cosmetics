@@ -40,7 +40,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/lotties/
+    - assets/lottie/
 
 
 
