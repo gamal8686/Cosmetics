@@ -1,10 +1,8 @@
 
 
 
-import 'package:cosmetics/views/auth/login.dart';
-import 'package:cosmetics/views/splash.dart';
+import 'package:cosmetics/views/home/views.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/logic/helper_methods.dart';
@@ -83,7 +81,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home: LoginView(),
+        home: HomeView(),
       ),
     );
 
