@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
     _Model(image:  'my_cart.svg', page: MyCardPage()),
     _Model(image: 'profile.svg', page: ProfilePage()),
   ];
-  int currentIndex = 1;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

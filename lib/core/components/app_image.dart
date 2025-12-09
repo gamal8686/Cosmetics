@@ -38,7 +38,7 @@ class _AppImageState extends State<AppImage>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.path.startsWith('http')) {
+    if (widget.path.startsWith('http') || widget.path.startsWith('https')) {
       return Image.network(
         widget.path,
         height: widget.height,
@@ -102,7 +102,7 @@ class _AppImageState extends State<AppImage>
           fit: widget.fit,);
 
     } }else {
-      return Text('22');
+      return Text('35');
     }
   }
 }

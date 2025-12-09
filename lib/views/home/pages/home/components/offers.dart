@@ -14,7 +14,7 @@ class _OffersState extends State<_Offers> {
     final resp = await Dio().get(
       'https://cosmatics-302b5-default-rtdb.europe-west1.firebasedatabase.app/offers.json',
     );
-    print(resp.data);
+
     offers = OfferList.jsonData(resp.data).list;
 
     setState(() {});
@@ -66,7 +66,7 @@ class _OffersState extends State<_Offers> {
                               ),
                             ),
                           ),
-                         Spacer(),
+                          Spacer(),
                           SvgPicture.asset(
                             'assets/icons/offer.svg',
                             height: 60.h,
@@ -78,7 +78,7 @@ class _OffersState extends State<_Offers> {
                     Padding(
                       padding: EdgeInsets.all(4.0.r),
                       child: Row(
-                      mainAxisSize: MainAxisSize.min,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
                             child: SvgPicture.asset(
@@ -115,7 +115,6 @@ class _OffersState extends State<_Offers> {
   }
 }
 
-
 class OfferList {
   late final List<OffersModel> list;
 
@@ -137,10 +136,9 @@ class OffersModel {
     coupon = json['cupon'] ?? '';
     discount = json['discound'] ?? 0;
     id = json['id'] ?? 0;
-    image = json['image'] ?? '';
+    image = json['image'] ?? 'https://thumbs.dreamstime.com/z/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-271826657.jpg';
     productId = json['product_id'] ?? 0;
     subtitle1 = json['sub_title1'] ?? '';
     subtitle2 = json['sub_title2'] ?? '';
   }
 }
-

@@ -1,10 +1,9 @@
 part of '../view.dart';
 
 class _List extends StatefulWidget {
-
   final bool isTopRated;
 
-  const _List({super.key,   this.isTopRated=false});
+  const _List({super.key, this.isTopRated = false});
 
   @override
   State<_List> createState() => _ListState();
@@ -15,7 +14,7 @@ class _ListState extends State<_List> {
 
   Future<void> getData() async {
     final resp = await Dio().get(
-      'https://cosmatics-302b5-default-rtdb.europe-west1.firebasedatabase.app/products/${widget.isTopRated?'most_ordered.json':'top_rated.json'}',
+      'https://cosmatics-302b5-default-rtdb.europe-west1.firebasedatabase.app/products/${widget.isTopRated ? 'most_ordered.json' : 'top_rated.json'}',
     );
 
     listProdect = ProductList.jsonData(resp.data).list;
@@ -35,7 +34,7 @@ class _ListState extends State<_List> {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            widget.isTopRated?'Most ordered Products':'Top rated products',
+            widget.isTopRated ? 'Most ordered Products' : 'Top rated products',
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
@@ -46,31 +45,29 @@ class _ListState extends State<_List> {
         SizedBox(height: 14.h),
         listProdect == null
             ? Center(child: CircularProgressIndicator())
-            :
+            : GridView.builder(
+                itemCount: listProdect!.length,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 176 / 237,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 12,
+                ),
 
-        GridView.builder(
-          itemCount: listProdect!.length,
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 12,
-            childAspectRatio: 176 / 237,
-            crossAxisCount: 2,
-            mainAxisSpacing: 12,
-          ),
-
-          itemBuilder: (context, index) =>
-              _items(prodect: listProdect![index]),
-        ),
+                itemBuilder: (context, index) =>
+                    _Items(Product: listProdect![index]),
+              ),
       ],
     );
   }
 }
 
-class _items extends StatelessWidget {
-  final ProductModel? prodect;
+class _Items extends StatelessWidget {
+  final ProductModel? Product;
 
-  const _items({super.key,   this.prodect});
+  const _Items({super.key, this.Product});
 
   @override
   Widget build(BuildContext context) {
@@ -90,48 +87,64 @@ class _items extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(8.0.r),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
-              child: Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  prodect == null
-                      ? Center(child: CircularProgressIndicator())
-                      : AppImage(
-                          fit: BoxFit.cover,
-                          height: 150.h,
-                          width: double.infinity,
-                          path: prodect!.image,
-                        ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      margin: EdgeInsetsDirectional.only(top: 6, end: 6),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
+            Stack(
+              children: [
+                Product!.image == null && Product!.image.isNotEmpty
+                    ? Center(child: CircularProgressIndicator())
+                    : Container(
+                        height: 150.h,
+                        width: double.infinity,
+                        color: Colors.grey[300],
+                        child: Product!.image.isNotEmpty
+                            ? AppImage(
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                path: Product!.image,
+                              )
+                            : Shimmer.fromColors(
+                                baseColor: Colors.red,
+                                highlightColor: Colors.yellow,
+                                child: Center(
+                                  child: Text(
+                                    '404',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 40.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
                       ),
-                      height: 35.h,
-                      width: 35.w,
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsetsDirectional.only(top: 6, start: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    height: 35.h,
+                    width: 35.w,
 
-                      child: Center(
-                        child: AppImage(
-                          path: 'car_categories.svg',
-                          height: 16.h,
-                          width: 16.w,
-                        ),
+                    child: Center(
+                      child: AppImage(
+                        path: 'car_categories.svg',
+                        height: 16.h,
+                        width: 16.w,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(height: 11.h),
             Expanded(
               child: Text(
-                prodect!.titel,
+                Product!.titel,
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 14.sp,
@@ -142,7 +155,7 @@ class _items extends StatelessWidget {
             SizedBox(height: 11.h),
             Expanded(
               child: Text(
-                '${prodect!.price}',
+                '${Product!.price}',
                 style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w700,

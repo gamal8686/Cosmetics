@@ -8,15 +8,13 @@ import '../../../../core/components/app_input.dart';
 part 'components/list_product.dart';
 
 class CategoriesPage extends StatelessWidget {
-
-  const CategoriesPage({super.key,});
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Column(
-
           children: [
             Center(
               child: Text(
@@ -29,7 +27,7 @@ class CategoriesPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12.h),
-            AppInput(label: 'Search', path: 'search.svg', isBorder: 25,),
+            AppInput(label: 'Search', path: 'search.svg', isBorder: 25),
             SizedBox(height: 12.h),
             _ListProduct(),
           ],
@@ -38,26 +36,3 @@ class CategoriesPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
