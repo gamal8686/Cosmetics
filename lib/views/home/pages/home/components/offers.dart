@@ -136,7 +136,7 @@ class OffersModel {
     coupon = json['cupon'] ?? '';
     discount = json['discound'] ?? 0;
     id = json['id'] ?? 0;
-    image = json['image'] ?? 'https://thumbs.dreamstime.com/z/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-271826657.jpg';
+    image = json['image'] ?? '';
     productId = json['product_id'] ?? 0;
     subtitle1 = json['sub_title1'] ?? '';
     subtitle2 = json['sub_title2'] ?? '';

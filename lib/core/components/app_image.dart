@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shimmer/shimmer.dart';
 
 class AppImage extends StatefulWidget {
   final String path;
@@ -44,7 +45,17 @@ class _AppImageState extends State<AppImage>
         height: widget.height,
         width: widget.width,
         fit: widget.fit,
-        errorBuilder: (context, error, stackTrace) => Text('000'),
+        errorBuilder: (context, error, stackTrace) => Shimmer.fromColors(
+          baseColor: Colors.red,
+          highlightColor: Colors.yellow,
+          child: Center(
+            child: Text(
+              '404',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       );
     }
     if (widget.path.endsWith('png')) {
@@ -52,7 +63,17 @@ class _AppImageState extends State<AppImage>
         'assets/images/${widget.path}',
         height: widget.height,
         width: widget.width,
-        errorBuilder: (context, error, stackTrace) => Text('55'),
+        errorBuilder: (context, error, stackTrace) => Shimmer.fromColors(
+          baseColor: Colors.red,
+          highlightColor: Colors.yellow,
+          child: Center(
+            child: Text(
+              'png',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       );
     }
     if (widget.path.endsWith('svg')) {
@@ -61,7 +82,17 @@ class _AppImageState extends State<AppImage>
         height: widget.height,
         width: widget.width,
         color: widget.color,
-        errorBuilder: (context, error, stackTrace) => Text('404'),
+        errorBuilder: (context, error, stackTrace) => Shimmer.fromColors(
+          baseColor: Colors.red,
+          highlightColor: Colors.yellow,
+          child: Center(
+            child: Text(
+              'svg',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       );
     }
     if (widget.path.endsWith('jpg')) {
@@ -69,7 +100,17 @@ class _AppImageState extends State<AppImage>
         'assets/images/${widget.path}',
         height: widget.height,
         width: widget.width,
-        errorBuilder: (context, error, stackTrace) => Text('22'),
+        errorBuilder: (context, error, stackTrace) => Shimmer.fromColors(
+          baseColor: Colors.red,
+          highlightColor: Colors.yellow,
+          child: Center(
+            child: Text(
+              'jpg',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       );
     } else if (widget.path.endsWith('json')) {
       if (widget.isLottieControlled != null) {
@@ -90,18 +131,29 @@ class _AppImageState extends State<AppImage>
             height: widget.height,
             width: widget.width,
             controller: _controller,
-            errorBuilder: (context, error, stackTrace) => Text('404'),
+            errorBuilder: (context, error, stackTrace) => Shimmer.fromColors(
+              baseColor: Colors.red,
+              highlightColor: Colors.yellow,
+              child: Center(
+                child: Text(
+                  '404',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ),
         );
-      } else{
+      } else {
         return Lottie.asset(
           'assets/lottie/${widget.path}',
           height: widget.height,
           width: widget.width,
           controller: _controller,
-          fit: widget.fit,);
-
-    } }else {
+          fit: widget.fit,
+        );
+      }
+    } else {
       return Text('35');
     }
   }

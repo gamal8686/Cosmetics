@@ -88,7 +88,7 @@ class ProductModel {
 
   ProductModel.json(Map<String, dynamic> json) {
     id = json['id'] ?? 0;
-    image = json['image'] ?? 'https://thumbs.dreamstime.com/z/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-271826657.jpg';
+    image = json['image'] ?? '';
     name = json['name'] ?? '';
   }
 }
