@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'app_country_code.dart';
 import 'app_image.dart';
 
 class AppInput extends StatefulWidget {
@@ -8,7 +9,7 @@ class AppInput extends StatefulWidget {
   final void Function(String)? onSelectedCountryCode;
   final String? Function(String?)? validator;
   final String? path, label;
-  final bool DropDown;
+  final bool dropDown;
   final bool isPassword;
   final bool isKeyboardType;
   final double isBorder;
@@ -17,15 +18,16 @@ class AppInput extends StatefulWidget {
   const AppInput({
     super.key,
     this.path,
-    this.DropDown = false,
+    this.dropDown = false,
     this.label,
     this.isPassword = false,
     this.isKeyboardType = false,
     this.isBorder = 8,
     this.controller,
-    this.onSelectedCountryCode,
+
     this.validator,
     this.isLottieControlled,
+    this.onSelectedCountryCode,
   });
 
   @override
@@ -33,16 +35,7 @@ class AppInput extends StatefulWidget {
 }
 
 class _AppInpotState extends State<AppInput> {
-  final list = ['10', '20', '30'];
-  late String selectedCountryCode;
   bool isHidden = true;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedCountryCode = list.first;
-    widget.onSelectedCountryCode?.call(selectedCountryCode);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,37 +45,13 @@ class _AppInpotState extends State<AppInput> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (widget.DropDown)
-              Padding(
-                padding: EdgeInsetsDirectional.only(end: 10.r),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Theme.of(
-                      context,
-                    ).inputDecorationTheme.enabledBorder!.borderSide.color,
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  child: DropdownButton<String>(
-                    icon: Padding(
-                      padding: EdgeInsetsDirectional.only(start: 4.r),
-                      child: AppImage(path: 'arrow_down.svg'),
-                    ),
-
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    value: selectedCountryCode,
-                    items: list
-                        .map(
-                          (e) => DropdownMenuItem(value: e, child: Text('$e')),
-                        )
-                        .toList(),
-                    onChanged: (value) {
-                      selectedCountryCode = value!;
-                      widget.onSelectedCountryCode?.call!(selectedCountryCode);
-                      setState(() {});
-                    },
-                  ),
-                ),
+            if (widget.dropDown)
+              AppCountryCode(
+                onSelectedCountryCode: (value) {
+                  if (widget.onSelectedCountryCode != null) {
+                    widget.onSelectedCountryCode!(value);
+                  }
+                },
               ),
 
             Expanded(
@@ -94,22 +63,20 @@ class _AppInpotState extends State<AppInput> {
                     : TextInputType.name,
                 obscureText: widget.isPassword && isHidden,
                 decoration: InputDecoration(
-                  suffixIcon:
-                  widget.isPassword
-                      ?  Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: AppImage(
-                              isLottieControlled: (p0) {
-                                isHidden=!isHidden;
-                                setState(() {
+                  suffixIcon: widget.isPassword
+                      ? IconButton(
+                          onPressed: () {
+                            isHidden =!isHidden;
+                            setState(() {
 
-                                });
-                              },
-                              height: 30,
-                              path: 'password_view.json',
-
+                            });
+                          },
+                          icon: AppImage(
+                            path: isHidden
+                                ? 'visibility_off.svg'
+                                : 'visibility_on.svg',
                           ),
-                      )
+                        )
                       : null,
 
                   border: OutlineInputBorder(
@@ -117,14 +84,14 @@ class _AppInpotState extends State<AppInput> {
                   ),
 
                   labelText: widget.label,
-                  filled: true,
-                  fillColor: Color(0xffD9D9D9),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(widget.isBorder),
-                  ),
+                   filled: true,
+                   fillColor: Color(0xffD9D9D9),
+                   enabledBorder: OutlineInputBorder(
+                   borderRadius: BorderRadius.circular(widget.isBorder),
                 ),
               ),
             ),
+             ),
           ],
         ),
       ),

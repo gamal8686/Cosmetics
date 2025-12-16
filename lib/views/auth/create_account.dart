@@ -29,8 +29,8 @@ class CreateAccount extends StatelessWidget {
             ),
             SizedBox(height: 50.h),
 
-            AppInput(label: 'Your Name'),
-            AppInput(label: 'Phone Number', DropDown: true),
+            AppInput(label: 'Your Name',),
+            AppInput(label: 'Phone Number', dropDown: true),
             AppInput(label: 'Create your password', isPassword: true),
             AppInput(label: 'Confirm password', isPassword: true),
             SizedBox(height: 90.h),

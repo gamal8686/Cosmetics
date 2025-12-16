@@ -18,9 +18,12 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  String? selectCountryCode;
+  String? onSelectCountryCode;
+
   TextEditingController phoneController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -29,7 +32,6 @@ class _LoginViewState extends State<LoginView> {
       body: SafeArea(
         child: Form(
           key: formKey,
-          autovalidateMode: AutovalidateMode.onUnfocus,
           child: SingleChildScrollView(
             padding: EdgeInsets.all(13.r).copyWith(top: 48.r),
             child: Column(
@@ -60,15 +62,14 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 25.h),
                 AppInput(
-
                   validator: InputValidator.phoneValidator,
                   controller: phoneController,
                   isPassword: false,
                   isLottieControlled: true,
                   isKeyboardType: true,
-                  DropDown: true,
+                  dropDown: true,
                   onSelectedCountryCode: (value) {
-                    selectCountryCode = value;
+                    onSelectCountryCode = value;
                   },
                   label: 'Phone Number',
                 ),
@@ -101,15 +102,17 @@ class _LoginViewState extends State<LoginView> {
                 Center(
                   child: AppButton(
                     isLoading: false,
-                    width: 268,
+                    width: 268.w,
                     text: 'Login',
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         final phone = phoneController.text.trim();
                         final passwored = passwordController.text.trim();
+
                         print(passwored);
                         print(phone);
-                        print(selectCountryCode);
+
+                        print(onSelectCountryCode);
                         //goTo(HomeView(), canPop: false);
                       }
                     },

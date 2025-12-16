@@ -38,7 +38,7 @@ class ForgetPasswordView extends StatelessWidget {
             ),
             SizedBox(height: 40.h),
 
-            AppInput(label: 'Phone Number', DropDown: true),
+            AppInput(label: 'Phone Number', dropDown: true),
 
             SizedBox(height: 55.h),
             Center(
