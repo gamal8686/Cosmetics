@@ -1,3 +1,4 @@
+import 'package:cosmetics/core/logic/dio_helper.dart';
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,6 +26,25 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController passwordController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  Future<void> sendData() async {
+    final phone = phoneController.text.trim();
+    final passwored = passwordController.text.trim();
+
+    final resp = await DioHelper.sendData(
+      pass: '/api/Auth/login',
+      data: {
+        "countryCode": onSelectCountryCode,
+        "phoneNumber": phone,
+        "password": passwored,
+      },
+    );
+    if (resp.isSuccess) {
+      showMessage(resp.mag);
+    } else {
+      showMessage(resp.mag, isError: true);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +88,7 @@ class _LoginViewState extends State<LoginView> {
                   isLottieControlled: true,
                   isKeyboardType: true,
                   dropDown: true,
+
                   onSelectedCountryCode: (value) {
                     onSelectCountryCode = value;
                   },
@@ -106,13 +127,9 @@ class _LoginViewState extends State<LoginView> {
                     text: 'Login',
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        final phone = phoneController.text.trim();
-                        final passwored = passwordController.text.trim();
+                        sendData();
 
-                        print(passwored);
-                        print(phone);
 
-                        print(onSelectCountryCode);
                         //goTo(HomeView(), canPop: false);
                       }
                     },

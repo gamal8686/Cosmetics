@@ -46,15 +46,19 @@ class _AppInpotState extends State<AppInput> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (widget.dropDown)
-              AppCountryCode(
-                onSelectedCountryCode: (value) {
-                  if (widget.onSelectedCountryCode != null) {
-                    widget.onSelectedCountryCode!(value);
-                  }
-                },
+              Expanded(
+                flex: 1,
+                child: AppCountryCode(
+                  onSelectedCountryCode: (value) {
+                    if (widget.onSelectedCountryCode != null) {
+                      widget.onSelectedCountryCode!(value);
+                    }
+                  },
+                ),
               ),
 
             Expanded(
+              flex: 2,
               child: TextFormField(
                 validator: widget.validator,
                 controller: widget.controller,

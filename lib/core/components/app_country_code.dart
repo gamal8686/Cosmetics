@@ -1,3 +1,5 @@
+import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,17 +21,16 @@ class _AppCountryCodeState extends State<AppCountryCode> {
   List<CountryModel>? list;
 
   Future<void> getData() async {
-    final resp = await Dio().get('https://growfet.com/api/Countries');
+    final resp = await DioHelper.getData(pass: '/api/Countries');
+    if (resp.isSuccess) {
+      list = CountryCode.fromJson(resp.data ?? {}).list;
 
-    list = CountryCode.fromJson({'list': resp.data}).list;
-    int? index = list!.indexWhere((element) => element.code == '+20');
-    if (index != null && index != -1) {
-      selectedCountryCode = list![index].code;
-    } else {
       selectedCountryCode = list!.first.code;
-    }
 
-    widget.onSelectedCountryCode?.call(selectedCountryCode);
+      widget.onSelectedCountryCode?.call(selectedCountryCode);
+    } else {
+      showMessage(resp.mag, isError: true);
+    }
 
     setState(() {});
   }
@@ -62,14 +63,13 @@ class _AppCountryCodeState extends State<AppCountryCode> {
                 ),
 
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
+                isExpanded: true,
                 value: selectedCountryCode,
 
                 items: list!
                     .map(
-                      (e) => DropdownMenuItem(
-                        value: e.code,
-                        child: Text(e.code),
-                      ),
+                      (e) =>
+                          DropdownMenuItem(value: e.code, child: Text(e.code)),
                     )
                     .toList(),
                 onChanged: (String? value) {
