@@ -17,27 +17,25 @@ class ForgetPasswordView extends StatefulWidget {
 }
 
 class _ForgetPasswordViewState extends State<ForgetPasswordView> {
-  final formKey=GlobalKey<FormState>();
-   String? selectedCountryCode;
-  final  _controller=TextEditingController();
-  Future<void> sendData()async{
-    final resp=await DioHelper.sendData(
-        data: {
-          "countryCode": selectedCountryCode,
-          "phoneNumber": _controller.text.trim()
+  final formKey = GlobalKey<FormState>();
+  String? selectedCountryCode;
+  final _controller = TextEditingController();
 
-
-        },
-        pass: '/api/Auth/forgot-password');
+  Future<void> sendData() async {
+    final resp = await DioHelper.sendData(
+      data: {
+        "countryCode": selectedCountryCode??'+20',
+        "phoneNumber": _controller.text.trim(),
+      },
+      pass: '/api/Auth/forgot-password',
+    );
     if (resp.isSuccess) {
       showMessage(resp.mag);
     } else {
       showMessage(resp.mag, isError: true);
     }
-
-
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,18 +67,21 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
 
               AppInput(
                 onSelectedCountryCode: (value) {
-                  selectedCountryCode=value;
+                  selectedCountryCode = value;
                 },
-                  controller: _controller,
-                  label: 'Phone Number', dropDown: true),
+                controller: _controller,
+                label: 'Phone Number',
+                dropDown: true,
+              ),
 
               SizedBox(height: 55.h),
               Center(
                 child: AppButton(
                   width: 270.w,
                   onPressed: () {
-                    if(formKey.currentState!.validate())
-                {    sendData();}
+                    if (formKey.currentState!.validate()) {
+                      sendData();
+                    }
                     goTo(VerifyCode());
                   },
                   text: 'Next',

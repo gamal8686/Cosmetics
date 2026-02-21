@@ -1,7 +1,7 @@
 
 import 'package:animate_do/animate_do.dart';
 import 'package:cosmetics/core/logic/shared_preferences.dart';
-import 'package:cosmetics/views/auth/login.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:cosmetics/views/home/home_view.dart';
 
 import 'package:flutter/material.dart';

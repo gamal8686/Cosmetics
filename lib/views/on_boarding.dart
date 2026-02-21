@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/components/app_image.dart';
 import '../core/logic/helper_methods.dart';
-import 'auth/login.dart';
+import 'auth/login/view.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});

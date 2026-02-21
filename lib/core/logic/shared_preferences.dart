@@ -1,6 +1,7 @@
-import 'package:cosmetics/views/auth/login.dart';
-import 'package:flutter/material.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../views/auth/login/model.dart';
 
 class CashHelper {
   static late SharedPreferences _preferences;
@@ -16,16 +17,24 @@ class CashHelper {
   static bool get getIsNotFirst {
     return _preferences.getBool('isFirst') ?? true;
   }
-
+  static String get token {
+    return _preferences.getString('token') ?? '';
+  }
   static bool get isAuth {
     return (_preferences.getString('token') ?? '').isNotEmpty;
   }
-
+static Future<void> logeOut ()async{
+    await _preferences.remove('id');
+    await _preferences.remove('token');
+    await _preferences.remove('email');
+    await _preferences.remove('phoneNumber');
+    await _preferences.remove('countryCode');
+}
   static Future<void> saveUserData(User model) async {
-    _preferences.setInt('id', model.user.id);
+    _preferences.setInt('id', model.user?.id??0);
     _preferences.setString('token', model.token);
-    _preferences.setString('email', model.user.email);
-    _preferences.setString('phoneNumber', model.user.phoneNumber);
-    _preferences.setString('countryCode', model.user.countryCode);
+    _preferences.setString('email', model.user?.email??'');
+    _preferences.setString('phoneNumber', model.user?.phoneNumber??'');
+    _preferences.setString('countryCode', model.user?.countryCode??'');
   }
 }

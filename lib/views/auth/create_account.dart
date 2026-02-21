@@ -1,4 +1,6 @@
 import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/views/auth/login/model.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,6 +11,7 @@ import '../../core/components/app_input.dart';
 import '../../core/components/app_login_or_register.dart';
 import '../../core/components/app_validator.dart';
 import '../../core/logic/helper_methods.dart';
+import '../../core/logic/shared_preferences.dart';
 import 'otp.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -21,29 +24,32 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   String? onSelectedCountryCode;
   final formKey = GlobalKey<FormState>();
-  final _name = TextEditingController();
-  final _email = TextEditingController();
-  final _number = TextEditingController();
-  final _password = TextEditingController();
+  final _name = TextEditingController(text: 'Gamal1');
+  final _email = TextEditingController(text: 'man1207478@gmail.com');
+  final _number = TextEditingController(text: '01012345678');
+  final _password = TextEditingController(text: '01065953330');
+  final newPassword = TextEditingController(text: '01065953330');
 
   Future<void> sentData() async {
-
     final resp = await DioHelper.sendData(
       pass: '/api/Auth/register',
       data: {
         "username": _name.text.trim(),
-        "countryCode": onSelectedCountryCode,
+        "countryCode": onSelectedCountryCode ?? '+20',
         "phoneNumber": _number.text.trim(),
         "email": _email.text.trim(),
         "password": _password.text.trim(),
       },
     );
-    if (resp.isSuccess) {
-      showMessage(resp.mag);
-    } else {
-      showMessage(resp.mag, isError: true);
-    }
+    print(resp.data);
+    if (resp.data != null) {
+      final model = User.fromJson(resp.data!);
+      CashHelper.saveUserData(model);
 
+      goTo(LoginView());
+    } else {
+      showMessage(resp.data?['massage'], isError: true);
+    }
   }
 
   @override
@@ -56,6 +62,7 @@ class _CreateAccountState extends State<CreateAccount> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 40.h),
               AppImage(path: 'logo.png', height: 65.h, width: 65.w),
               SizedBox(height: 40.h),
               Text(
@@ -64,10 +71,8 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
               SizedBox(height: 50.h),
 
-              AppInput(
-
-                  controller: _name, label: 'Your Name'),
-              AppInput(controller: _email , label: 'Email '),
+              AppInput(controller: _name, label: 'Your Name'),
+              AppInput(controller: _email, label: 'Email '),
               AppInput(
                 validator: InputValidator.phoneValidator,
                 onSelectedCountryCode: (value) {
@@ -84,16 +89,20 @@ class _CreateAccountState extends State<CreateAccount> {
                 isPassword: true,
               ),
               AppInput(
-                  validator: InputValidator.passwordValidator,
-                  label: 'Confirm password', isPassword: true),
+                controller: newPassword,
+                validator: InputValidator.passwordValidator,
+                label: 'Confirm password',
+                isPassword: true,
+              ),
               SizedBox(height: 90.h),
               Center(
                 child: AppButton(
                   width: 270.w,
                   onPressed: () {
-                    if(formKey.currentState!.validate())
-                  {  sentData();}
-                    goTo(VerifyCode(isFromCreateAccount: true), canPop: true);
+                    if (formKey.currentState!.validate()) {
+                      sentData();
+                    }
+                    //goTo(VerifyCode(isFromCreateAccount: true), canPop: true);
                   },
                   text: 'Next',
                 ),

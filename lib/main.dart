@@ -1,7 +1,8 @@
 
 import 'package:cosmetics/views/auth/create_account.dart';
 import 'package:cosmetics/views/auth/create_password.dart';
-import 'package:cosmetics/views/auth/login.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
+import 'package:cosmetics/views/home/home_view.dart';
 import 'package:cosmetics/views/home/pages/categories/view.dart';
 import 'package:cosmetics/views/home/pages/home/view.dart';
 import 'package:cosmetics/views/splash.dart';

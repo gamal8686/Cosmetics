@@ -1,3 +1,6 @@
+import 'package:cosmetics/core/logic/helper_methods.dart';
+import 'package:cosmetics/core/logic/shared_preferences.dart';
+import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:dio/dio.dart';
 
 enum DataState { loading, failed, success }
@@ -15,6 +18,9 @@ class DioHelper {
   );
 
   static Future<CustomResponse> getData({String pass = ''}) async {
+    _dio.options.headers.addAll({
+      'Authorization': 'Bearer ${CashHelper.token}',
+    });
     try {
       final resp = await _dio.get(pass);
 
@@ -26,7 +32,7 @@ class DioHelper {
         data = resp.data;
       }
 
-      return CustomResponse(mag:'is dddddd', isSuccess: true, data: data);
+      return CustomResponse(mag: 'is Success', isSuccess: true, data: data);
     } on DioException catch (ex) {
       return CustomResponse(
         isSuccess: false,
@@ -39,15 +45,31 @@ class DioHelper {
     String pass = '',
     Map<String, dynamic>? data,
   }) async {
+    _dio.options.headers.addAll({
+      'Authorization': 'Bearer ${CashHelper.token}',
+    });
+
     try {
       final resp = await _dio.post(pass, data: data);
+      if (resp.statusCode == 200) {
+        showMessage(resp.data['massage']);
+        return CustomResponse(
+          isSuccess: true,
+          mag: 'isSuccess',
+          data: resp.data,
+        );
 
+      } else if (resp.statusCode == 401) {
+        CashHelper.logeOut();
+        goTo(LoginView(), canPop: false);
+      }
       return CustomResponse(
         isSuccess: true,
         mag: 'Is Success',
         data: resp.data is Map<String, dynamic> ? resp.data : null,
       );
     } on DioException catch (ex) {
+      print(ex.response?.data['message']);
       return CustomResponse(
         isSuccess: false,
         mag: ex.response?.data['message'],
@@ -55,6 +77,7 @@ class DioHelper {
     }
   }
 }
+
 
 class CustomResponse {
   final bool isSuccess;

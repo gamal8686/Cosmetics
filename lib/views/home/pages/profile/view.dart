@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/components/app_image.dart';
-import '../../../core/logic/helper_methods.dart';
+import '../../../../core/components/app_image.dart';
+import 'collection.dart';
+import 'model.dart';
 
-import '../../check_out.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+final collection=CollectionProfile();
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +60,9 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 40.h),
 
           ListView.builder(
-
             padding: EdgeInsets.symmetric(vertical: 250.h, horizontal: 10.w),
             itemBuilder: (context, index) => _Item(index: index),
-            itemCount: _list.length,
+            itemCount: list.length,
           ),
           SizedBox(height: 34.h),
           Positioned(
@@ -69,7 +75,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(width: 8.w),
                   TextButton(
                     onPressed: () {
-                      goTo(CheckOutView(),canPop: true);
+                   collection.logOut();
                     },
 
                     child: Text(
@@ -103,10 +109,10 @@ class _Item extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       child: Row(
         children: [
-          _list[index].label,
+          list[index].label,
           SizedBox(width: 3.w),
           Text(
-            _list[index].labels,
+            list[index].labels,
             style: TextStyle(
               fontSize: 13.sp,
               fontWeight: FontWeight.w600,
@@ -114,25 +120,14 @@ class _Item extends StatelessWidget {
             ),
           ),
           Spacer(),
-          IconButton(onPressed: () {}, icon:AppImage(path: 'arrow_right.png')),
+          IconButton(
+            onPressed: () {},
+            icon: AppImage(path: 'arrow_right.png'),
+          ),
         ],
       ),
     );
   }
 }
 
-class CardProfile {
-  final Widget label;
-  final String labels;
 
-  CardProfile(this.label, this.labels);
-}
-
-final _list = [
-
-  CardProfile(AppImage(path: 'edit_info.svg'), 'Edit Info'),
-  CardProfile(AppImage(path: 'order_history.svg'), 'Order History'),
-  CardProfile(AppImage(path: 'wallet.svg'), 'Wallet'),
-  CardProfile(AppImage(path: 'setting.svg'), 'Settings'),
-  CardProfile(AppImage(path: 'discount.svg'),'Voucher'),
-];

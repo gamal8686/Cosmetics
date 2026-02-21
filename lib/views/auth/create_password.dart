@@ -8,7 +8,7 @@ import '../../core/components/app_image.dart';
 import '../../core/components/app_input.dart';
 import '../../core/logic/helper_methods.dart';
 import 'account_dailog.dart';
-import 'login.dart';
+import 'login/view.dart';
 
 class CreatePasswordView extends StatefulWidget {
   const CreatePasswordView({super.key});
