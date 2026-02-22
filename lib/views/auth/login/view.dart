@@ -11,8 +11,8 @@ import '../../../core/components/app_input.dart';
 import '../../../core/components/app_login_or_register.dart';
 import '../../../core/components/app_validator.dart';
 import '../../home/home_view.dart';
-import '../forget _password.dart';
-import 'collection.dart';
+import '../forget_password/view.dart';
+import 'collection_login.dart';
 import 'model.dart';
 
 class LoginView extends StatefulWidget {
@@ -23,7 +23,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final collection = Collection();
+  final collection = CollectionLogin();
 
   @override
   Widget build(BuildContext context) {

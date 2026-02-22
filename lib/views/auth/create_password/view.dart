@@ -3,12 +3,12 @@ import 'package:cosmetics/core/logic/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_button.dart';
-import '../../core/components/app_image.dart';
-import '../../core/components/app_input.dart';
-import '../../core/logic/helper_methods.dart';
-import 'account_dailog.dart';
-import 'login/view.dart';
+import '../../../core/components/app_button.dart';
+import '../../../core/components/app_image.dart';
+import '../../../core/components/app_input.dart';
+import '../../../core/logic/helper_methods.dart';
+import '../account_dailog/account_dailog.dart';
+import '../login/view.dart';
 
 class CreatePasswordView extends StatefulWidget {
   const CreatePasswordView({super.key});

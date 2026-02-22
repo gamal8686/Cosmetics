@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_button.dart';
-import '../../core/components/app_image.dart';
-import '../../core/logic/helper_methods.dart';
-import '../home/home_view.dart';
-import 'login/view.dart';
+import '../../../core/components/app_button.dart';
+import '../../../core/components/app_image.dart';
+import '../../../core/logic/helper_methods.dart';
+import '../../home/home_view.dart';
+import '../login/view.dart';
 
 class AccountActivatedDialog extends StatelessWidget {
   final bool isFromCreateAccount;

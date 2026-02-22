@@ -1,13 +1,13 @@
 import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/logic/shared_preferences.dart';
-import 'package:cosmetics/views/auth/create_account.dart';
+import 'package:cosmetics/views/auth/create_account/view.dart';
 import 'package:cosmetics/views/auth/login/model.dart';
 import 'package:cosmetics/views/home/home_view.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../core/logic/dio_helper.dart';
 
-class Collection {
+class CollectionLogin {
   String? onSelectCountryCode;
 
   final phoneController = TextEditingController(text: '010123456789');
@@ -38,7 +38,7 @@ class Collection {
       showMessage('pleas create New Password',isError: true);
       goTo(CreateAccount());
 
-      print(resp.data?['massage']);
+
     }
   }
 }

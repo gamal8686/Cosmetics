@@ -1,6 +1,6 @@
 
-import 'package:cosmetics/views/auth/create_account.dart';
-import 'package:cosmetics/views/auth/create_password.dart';
+import 'package:cosmetics/views/auth/create_account/view.dart';
+import 'package:cosmetics/views/auth/create_password/view.dart';
 import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:cosmetics/views/home/home_view.dart';
 import 'package:cosmetics/views/home/pages/categories/view.dart';

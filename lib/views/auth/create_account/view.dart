@@ -1,18 +1,17 @@
 import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/views/auth/create_account/collection_create_account.dart';
 import 'package:cosmetics/views/auth/login/model.dart';
 import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_button.dart';
-import '../../core/components/app_image.dart';
+import '../../../core/components/app_button.dart';
+import '../../../core/components/app_image.dart';
 
-import '../../core/components/app_input.dart';
-import '../../core/components/app_login_or_register.dart';
-import '../../core/components/app_validator.dart';
-import '../../core/logic/helper_methods.dart';
-import '../../core/logic/shared_preferences.dart';
-import 'otp.dart';
+import '../../../core/components/app_input.dart';
+import '../../../core/components/app_login_or_register.dart';
+import '../../../core/components/app_validator.dart';
+
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -22,35 +21,7 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
-  String? onSelectedCountryCode;
-  final formKey = GlobalKey<FormState>();
-  final _name = TextEditingController(text: 'Gamal1');
-  final _email = TextEditingController(text: 'man1207478@gmail.com');
-  final _number = TextEditingController(text: '01012345678');
-  final _password = TextEditingController(text: '01065953330');
-  final newPassword = TextEditingController(text: '01065953330');
-
-  Future<void> sentData() async {
-    final resp = await DioHelper.sendData(
-      pass: '/api/Auth/register',
-      data: {
-        "username": _name.text.trim(),
-        "countryCode": onSelectedCountryCode ?? '+20',
-        "phoneNumber": _number.text.trim(),
-        "email": _email.text.trim(),
-        "password": _password.text.trim(),
-      },
-    );
-    print(resp.data);
-    if (resp.data != null) {
-      final model = User.fromJson(resp.data!);
-      CashHelper.saveUserData(model);
-
-      goTo(LoginView());
-    } else {
-      showMessage(resp.data?['massage'], isError: true);
-    }
-  }
+  final collection = CollectionCreateAccount();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +29,7 @@ class _CreateAccountState extends State<CreateAccount> {
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
         child: Form(
-          key: formKey,
+          key: collection.formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -71,25 +42,25 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
               SizedBox(height: 50.h),
 
-              AppInput(controller: _name, label: 'Your Name'),
-              AppInput(controller: _email, label: 'Email '),
+              AppInput(controller: collection.name, label: 'Your Name'),
+              AppInput(controller: collection.email, label: 'Email '),
               AppInput(
                 validator: InputValidator.phoneValidator,
                 onSelectedCountryCode: (value) {
-                  onSelectedCountryCode = value;
+                  collection.onSelectedCountryCode = value;
                 },
-                controller: _number,
+                controller: collection.number,
                 label: 'Phone Number',
                 dropDown: true,
               ),
               AppInput(
                 validator: InputValidator.passwordValidator,
-                controller: _password,
+                controller: collection.password,
                 label: 'Create your Password',
                 isPassword: true,
               ),
               AppInput(
-                controller: newPassword,
+                controller: collection.newPassword,
                 validator: InputValidator.passwordValidator,
                 label: 'Confirm password',
                 isPassword: true,
@@ -99,8 +70,8 @@ class _CreateAccountState extends State<CreateAccount> {
                 child: AppButton(
                   width: 270.w,
                   onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      sentData();
+                    if (collection.formKey.currentState!.validate()) {
+                      collection.sentData();
                     }
                     //goTo(VerifyCode(isFromCreateAccount: true), canPop: true);
                   },

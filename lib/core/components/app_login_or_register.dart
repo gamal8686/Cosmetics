@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../views/auth/create_account.dart';
+import '../../views/auth/create_account/view.dart';
 import '../../views/auth/login/view.dart';
 import '../logic/helper_methods.dart';
 

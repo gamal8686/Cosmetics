@@ -1,16 +1,17 @@
 
 import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/views/auth/otp/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/components/app_back.dart';
-import '../../core/components/app_button.dart';
-import '../../core/components/app_image.dart';
+import '../../../core/components/app_back.dart';
+import '../../../core/components/app_button.dart';
+import '../../../core/components/app_image.dart';
 
-import '../../core/components/app_verify_code.dart';
-import '../../core/logic/helper_methods.dart';
-import 'account_dailog.dart';
-import 'create_password.dart';
+import '../../../core/components/app_verify_code.dart';
+import '../../../core/logic/helper_methods.dart';
+import '../account_dailog/account_dailog.dart';
+import '../create_password/view.dart';
 
 class VerifyCode extends StatefulWidget {
 
@@ -22,33 +23,16 @@ class VerifyCode extends StatefulWidget {
 }
 
 class _VerifyCodeState extends State<VerifyCode> {
-  final _formKey=GlobalKey<FormState>();
-   final _controller =TextEditingController();
-   Future<void> sendData()async{
 
-     final resp=await DioHelper.sendData(pass: '/api/Auth/verify-otp',data: {
-       "countryCode": "+20",
-       ///todo i need the countrycode
-
-       "phoneNumber": "1234567890",
-       ///todo i need the phone number
-       "otpCode":_controller.text.trim()
-     });
-     if (resp.isSuccess) {
-       showMessage(resp.mag);
-     } else {
-       showMessage(resp.mag, isError: true);
-     }
-   }
 
   @override
   Widget build(BuildContext context) {
-
+final collection=CollectionOtp();
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(13.r),
         child: Form(
-           key:  _formKey,
+           key:  collection.formKey,
           child: Column(
             children: [
               SizedBox(height: 40.h),
@@ -94,7 +78,7 @@ class _VerifyCodeState extends State<VerifyCode> {
                   child: Text('Edit the number'),
                 ),
               ),
-              AppVerifyCode(controller: _controller,),
+              AppVerifyCode(controller: collection.controller,),
 
               SizedBox(height: 40.h),
 
@@ -121,8 +105,8 @@ class _VerifyCodeState extends State<VerifyCode> {
 
                 text: 'Done',
                 onPressed: () {
-                  if(_formKey.currentState!.validate())
-                {  sendData();}
+                  if(collection.formKey.currentState!.validate())
+                {  collection.sendData();}
                   if(widget.isFromCreateAccount){
                     showDialog(
                       context: context,
