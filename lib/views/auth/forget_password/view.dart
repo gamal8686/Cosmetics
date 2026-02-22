@@ -1,4 +1,4 @@
-import 'package:cosmetics/views/auth/forget_password/collection.dart';
+import 'package:cosmetics/views/auth/forget_password/collection_forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
