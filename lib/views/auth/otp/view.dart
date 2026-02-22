@@ -23,11 +23,11 @@ class VerifyCode extends StatefulWidget {
 }
 
 class _VerifyCodeState extends State<VerifyCode> {
-
+  final collection=CollectionOtp();
 
   @override
   Widget build(BuildContext context) {
-final collection=CollectionOtp();
+
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(13.r),

@@ -1,5 +1,6 @@
 import 'package:cosmetics/core/components/app_validator.dart';
 import 'package:cosmetics/core/logic/dio_helper.dart';
+import 'package:cosmetics/views/auth/create_password/collection_create_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,24 +19,7 @@ class CreatePasswordView extends StatefulWidget {
 }
 
 class _CreatePasswordViewState extends State<CreatePasswordView> {
-  final _formKey = GlobalKey<FormState>();
-  final _newPassword = TextEditingController();
-  final _confirmPassword = TextEditingController();
-
-  Future<void> sendData() async {
-    final resp = await DioHelper.sendData(
-      pass: '/api/Auth/reset-password',
-      data: {
-        "newPassword": _newPassword.text.trim(),
-        "confirmPassword": _confirmPassword.text.trim(),
-      },
-    );
-    if (resp.isSuccess) {
-      showMessage(resp.mag);
-    } else {
-      showMessage(resp.mag, isError: true);
-    }
-  }
+  final collection = CollectionCreatePassword();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +27,7 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
       body: SingleChildScrollView(
         padding: EdgeInsetsDirectional.all(14.r).copyWith(top: 40.r),
         child: Form(
-          key: _formKey,
+          key: collection.formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -65,13 +49,13 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
 
               AppInput(
                 validator: InputValidator.passwordValidator,
-                controller: _newPassword,
+                controller: collection.newPassword,
                 label: 'New password',
                 isPassword: true,
               ),
               AppInput(
                 validator: InputValidator.passwordValidator,
-                controller: _confirmPassword,
+                controller: collection.confirmPassword,
                 label: 'Confirm password',
                 isPassword: true,
               ),
@@ -80,8 +64,8 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                 child: AppButton(
                   width: 270,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      sendData();
+                    if (collection.formKey.currentState!.validate()) {
+                      collection.sendData();
                     }
                     showDialog(
                       context: context,

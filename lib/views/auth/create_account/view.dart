@@ -12,7 +12,6 @@ import '../../../core/components/app_input.dart';
 import '../../../core/components/app_login_or_register.dart';
 import '../../../core/components/app_validator.dart';
 
-
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 
