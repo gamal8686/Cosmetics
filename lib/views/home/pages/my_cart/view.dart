@@ -1,10 +1,26 @@
+
+import 'package:cosmetics/views/home/pages/my_cart/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/components/app_image.dart';
+import '../../../../core/components/app_image.dart';
+import 'model.dart';
 
-class MyCardPage extends StatelessWidget {
+class MyCardPage extends StatefulWidget {
   const MyCardPage({super.key});
+
+  @override
+  State<MyCardPage> createState() => _MyCardPageState();
+}
+
+class _MyCardPageState extends State<MyCardPage> {
+  final collection =CollectionMyCart();
+
+  @override
+  void initState() {
+    super.initState();
+   collection. getData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +38,7 @@ class MyCardPage extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding:  EdgeInsets.all(10.0.r),
+            padding: EdgeInsets.all(10.0.r),
             child: AppImage(path: 'car_categories.svg'),
           ),
         ],
@@ -32,7 +48,7 @@ class MyCardPage extends StatelessWidget {
         children: [
           SizedBox(height: 24.h),
           Padding(
-            padding:  EdgeInsets.all(5.0.r),
+            padding: EdgeInsets.all(5.0.r),
             child: Column(
               children: [
                 SizedBox(height: 8.h),
@@ -54,9 +70,10 @@ class MyCardPage extends StatelessWidget {
 
           Expanded(
             child: ListView.separated(
-
-              itemBuilder: (context, index) =>
-                  Padding(padding:  EdgeInsets.all(10.r), child: _Item()),
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.all(10.r),
+                child: _Item(model:collection. data![index]),
+              ),
               separatorBuilder: (context, index) => Divider(),
               itemCount: 12,
             ),
@@ -68,14 +85,16 @@ class MyCardPage extends StatelessWidget {
 }
 
 class _Item extends StatefulWidget {
-  const _Item();
+  final Model model;
+
+  const _Item({super.key, required this.model});
 
   @override
   State<_Item> createState() => _ItemState();
 }
 
 class _ItemState extends State<_Item> {
-  int counter = 0;
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -95,9 +114,8 @@ class _ItemState extends State<_Item> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 6,left: 6),
-              child: AppImage(path: 'delete.svg',height: 20.h,width:
-                20.w,),
+              margin: EdgeInsets.only(top: 6, left: 6),
+              child: AppImage(path: 'delete.svg', height: 20.h, width: 20.w),
             ),
           ],
         ),
@@ -123,7 +141,7 @@ class _ItemState extends State<_Item> {
                         color: Color(0xff3B4569).withValues(alpha: .73),
                       ),
                     ),
-                    TextSpan(text: '350 EGP\n'),
+                    TextSpan(text: '${widget.model.price}'),
                   ],
                 ),
               ),
@@ -134,19 +152,19 @@ class _ItemState extends State<_Item> {
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Row(
-              mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
                       onPressed: () {
-                        counter--;
+                        count--;
                         setState(() {});
                       },
                       child: AppImage(path: 'minus.svg'),
                     ),
-                    TextButton(onPressed: () {}, child: Text('$counter')),
+                    TextButton(onPressed: () {}, child: Text('$count')),
                     TextButton(
                       onPressed: () {
-                        counter++;
+                        count++;
                         setState(() {});
                       },
                       child: AppImage(path: 'plus.svg'),
@@ -161,3 +179,4 @@ class _ItemState extends State<_Item> {
     );
   }
 }
+

@@ -5,6 +5,7 @@ import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:cosmetics/views/home/home_view.dart';
 import 'package:cosmetics/views/home/pages/categories/view.dart';
 import 'package:cosmetics/views/home/pages/home/view.dart';
+import 'package:cosmetics/views/home/pages/my_cart/view.dart';
 import 'package:cosmetics/views/splash.dart';
 
 import 'package:flutter/material.dart';
@@ -84,7 +85,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home:const SplashViews ()
+        home:const MyCardPage ()
 
 
       ),

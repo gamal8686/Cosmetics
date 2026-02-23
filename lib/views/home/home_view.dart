@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'pages/categories/view.dart';
 import 'pages/home/view.dart';
-import 'pages/my_cart.dart';
+import 'pages/my_cart/view.dart';
 import 'pages/profile/view.dart';
 
 class HomeView extends StatefulWidget {

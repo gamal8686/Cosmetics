@@ -11,9 +11,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/components/app_image.dart';
 import '../../../../core/components/app_input.dart';
 
-part 'components/offers.dart';
+part 'offers.dart';
 
-part 'components/list.dart';
+part 'list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
