@@ -3,7 +3,7 @@ import 'package:cosmetics/core/logic/shared_preferences.dart';
 import 'package:cosmetics/views/auth/login/view.dart';
 import 'package:dio/dio.dart';
 
-enum DataState { loading, failed, success }
+enum DataState { init,loading, failed, success }
 
 class DioHelper {
   static const _baseUrl = 'https://cosmatics.growfet.com';

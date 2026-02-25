@@ -3,7 +3,7 @@ import 'package:cosmetics/core/logic/helper_methods.dart';
 import 'package:cosmetics/core/logic/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/components/app_button.dart';
 import '../../../core/components/app_image.dart';
 import '../../../core/components/app_input.dart';
@@ -23,100 +23,104 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final collection = CollectionLogin();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Form(
-          key: collection.formKey,
-          child: SingleChildScrollView(
-            padding: EdgeInsets.all(13.r).copyWith(top: 48.r),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                AppImage(path: 'login.png', height: 227.h, width: 284.w),
-                SizedBox(height: 25.h),
-                Center(
-                  child: Text(
-                    'Login Now',
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 14.h),
+    return BlocProvider(
+      create: (context) => CollectionCubit(),
 
-                Center(
-                  child: Text(
-                    'Please enter the details below to continue',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 25.h),
-                AppInput(
-                  validator: InputValidator.phoneValidator,
-                  controller: collection.phoneController,
-                  isPassword: false,
-                  isLottieControlled: true,
-                  isKeyboardType: true,
-                  dropDown: true,
-
-                  onSelectedCountryCode: (value) {
-                    collection.onSelectCountryCode = value;
-                  },
-                  label: 'Phone Number',
-                ),
-                AppInput(
-                  validator: InputValidator.passwordValidator,
-                  controller: collection.passwordController,
-                  isKeyboardType: false,
-
-                  label: 'Your Password',
-                  path: 'arrow_down.svg',
-                  isPassword: true,
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      goTo(ForgetPasswordView(), canPop: true);
-                    },
-                    child: Text(
-                      'Forget Password?',
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w800,
+      child: Builder(
+        builder: (context) {
+          //todo
+    final cubit= context.read<CollectionCubit>();
+          return Scaffold(
+            body: SafeArea(
+              child: Form(
+                key: cubit.formKey,
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(13.r).copyWith(top: 48.r),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      AppImage(path: 'login.png', height: 227.h, width: 284.w),
+                      SizedBox(height: 25.h),
+                      Center(
+                        child: Text(
+                          'Login Now',
+                          style: TextStyle(
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 42.h),
+                      SizedBox(height: 14.h),
 
-                Center(
-                  child: AppButton(
-                    isLoading: collection.state == DataState.loading,
-                    width: 268.w,
-                    text: 'Login',
-                    onPressed: () {
-                      if (collection.formKey.currentState!.validate()) {
-                        collection.sendData();
-                      }
-                    },
+                      Center(
+                        child: Text(
+                          'Please enter the details below to continue',
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 25.h),
+                      AppInput(
+                        validator: InputValidator.phoneValidator,
+                        controller: cubit.phoneController,
+                        isPassword: false,
+                        isLottieControlled: true,
+                        isKeyboardType: true,
+                        dropDown: true,
+
+                        onSelectedCountryCode: cubit.onSelectedCountryCode,
+                        label: 'Phone Number',
+                      ),
+                      AppInput(
+                        validator: InputValidator.passwordValidator,
+                        controller: cubit.passwordController,
+                        isKeyboardType: false,
+
+                        label: 'Your Password',
+                        path: 'arrow_down.svg',
+                        isPassword: true,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            goTo(ForgetPasswordView(), canPop: true);
+                          },
+                          child: Text(
+                            'Forget Password?',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 42.h),
+
+                      Center(
+                        child: AppButton(
+                          isLoading:
+                          //todo
+                          cubit.state == DataState.loading,
+                          width: 268.w,
+                          text: 'Login',
+                          onPressed: cubit.onPressedLogin,
+                        ),
+                      ),
+                      SizedBox(height: 42.h),
+                      AppLoginOrRegister(),
+                    ],
                   ),
                 ),
-                SizedBox(height: 42.h),
-                AppLoginOrRegister(),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
