@@ -1,6 +1,6 @@
 import 'package:cosmetics/core/logic/dio_helper.dart';
 import 'package:cosmetics/views/auth/login/view.dart';
-import 'package:cosmetics/views/auth/otp/collection.dart';
+import 'package:cosmetics/views/auth/otp/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -118,7 +118,7 @@ class VerifyCode extends StatelessWidget {
                     BlocBuilder(
                       bloc: cubit,
                       builder: (context, state) => AppButton(
-                        isLoading: cubit.state==DataState.loading,
+                        isLoading:cubit.isLoadingDone(),
                         width: 270.w,
 
                         text: 'Done',

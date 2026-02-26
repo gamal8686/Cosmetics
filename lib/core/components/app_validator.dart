@@ -1,3 +1,5 @@
+import 'package:cosmetics/core/logic/helper_methods.dart';
+
 class InputValidator {
   static final RegExp validatePhoneNumberWithoutCode = RegExp(
     r'^[1-9][0-9]{9}$',
@@ -7,8 +9,8 @@ class InputValidator {
   );
 
   // RegExp if need regex if not need not problem
-  static String? phoneValidator(String? value) {
-    if (value == null ) {
+  static String?  phoneValidator(String? value) {
+    if (value == null || value.isEmpty ) {
       return 'Field is empty';
     } 
 

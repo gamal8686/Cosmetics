@@ -6,8 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/logic/dio_helper.dart';
 import '../../../core/logic/helper_methods.dart';
-import '../account_dailog/account_dailog.dart';
-import '../create_password/view.dart';
+
 
 class OtpCubit extends Cubit<DataState> {
   final String countryCodeOtp;
@@ -48,8 +47,11 @@ class OtpCubit extends Cubit<DataState> {
 
       showMessage(e.response?.data['message'] ?? 'Error', isError: true);
     }
-  }
 
+  }
+  bool isLoadingDone(){
+    return  state==DataState.loading;
+  }
 
 
 }
