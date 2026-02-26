@@ -2,6 +2,7 @@
 import 'package:cosmetics/views/auth/create_account/view.dart';
 import 'package:cosmetics/views/auth/create_password/view.dart';
 import 'package:cosmetics/views/auth/login/view.dart';
+import 'package:cosmetics/views/auth/otp/view.dart';
 import 'package:cosmetics/views/home/home_view.dart';
 import 'package:cosmetics/views/home/pages/categories/view.dart';
 import 'package:cosmetics/views/home/pages/home/view.dart';
@@ -85,7 +86,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: 'Cosmetics',
-        home:const MyCardPage ()
+        home:const SplashViews ()
 
 
       ),

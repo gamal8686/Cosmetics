@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/logic/dio_helper.dart';
 
-class CollectionCubit extends Cubit<DataState> {
+class CubitLogin extends Cubit<DataState> {
   String? onSelectCountryCode;
 
   final phoneController = TextEditingController(text: '010123456789');
@@ -19,7 +19,7 @@ class CollectionCubit extends Cubit<DataState> {
   final formKey = GlobalKey<FormState>();
 
 
-  CollectionCubit() : super(DataState.init);
+  CubitLogin() : super(DataState.init);
 
   Future<void> sendData() async {
     emit(DataState.loading);
@@ -35,7 +35,7 @@ class CollectionCubit extends Cubit<DataState> {
           "password": password,
         },
       );
-      if (resp.data != null) {
+      if (resp.isSuccess) {
         final model = User.fromJson(resp.data!);
         CashHelper.saveUserData(model);
         emit(DataState.success);
@@ -51,13 +51,12 @@ class CollectionCubit extends Cubit<DataState> {
     }
   }
 
-  void onSelectedCountryCode(value) {
-    onSelectCountryCode = value;
-  }
+  void onSelectedCountryCode(value) => onSelectCountryCode = value;
 
   void onPressedLogin() {
     if (formKey.currentState!.validate()) {
       sendData();
     }
   }
+ bool get isLoading=> state == DataState.loading;
 }

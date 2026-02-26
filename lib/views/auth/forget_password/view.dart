@@ -66,7 +66,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                     if (collection.formKey.currentState!.validate()) {
                       collection.sendData();
                     }
-                    goTo(VerifyCode());
+                  //  goTo(VerifyCode());
                   },
                   text: 'Next',
                 ),

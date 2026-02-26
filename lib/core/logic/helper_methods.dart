@@ -10,6 +10,7 @@ goTo(Widget page, {bool canPop = false, int? delayDuration}) {
       navKey.currentContext!,
       MaterialPageRoute(builder: (context) => page),
       (route) => canPop,
+
     );
   }
 
@@ -28,7 +29,7 @@ showMessage(String? text, {bool isError = false}) {
     SnackBar(
       backgroundColor: isError ? Colors.red : Colors.green,
       content: Text(text),
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 4),
     ),
   );
 }

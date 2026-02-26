@@ -12,26 +12,21 @@ import '../../../core/components/app_login_or_register.dart';
 import '../../../core/components/app_validator.dart';
 import '../../home/home_view.dart';
 import '../forget_password/view.dart';
-import 'collection_login.dart';
+import 'cubit.dart';
 import 'model.dart';
 
-class LoginView extends StatefulWidget {
+class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginView> {
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CollectionCubit(),
+      create: (context) => CubitLogin(),
 
       child: Builder(
         builder: (context) {
-          //todo
-    final cubit= context.read<CollectionCubit>();
+          final cubit = BlocProvider.of<CubitLogin>(context);
+
           return Scaffold(
             body: SafeArea(
               child: Form(
@@ -102,15 +97,19 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       SizedBox(height: 42.h),
 
-                      Center(
-                        child: AppButton(
-                          isLoading:
-                          //todo
-                          cubit.state == DataState.loading,
-                          width: 268.w,
-                          text: 'Login',
-                          onPressed: cubit.onPressedLogin,
-                        ),
+                      BlocBuilder(
+                        bloc: cubit,
+
+                        builder: (context, state) {
+                          return Center(
+                            child: AppButton(
+                              isLoading: cubit.isLoading,
+                              width: 268.w,
+                              text: 'Login',
+                              onPressed: cubit.onPressedLogin,
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(height: 42.h),
                       AppLoginOrRegister(),

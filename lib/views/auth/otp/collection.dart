@@ -1,25 +1,55 @@
+import 'package:cosmetics/views/auth/login/view.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/logic/dio_helper.dart';
 import '../../../core/logic/helper_methods.dart';
+import '../account_dailog/account_dailog.dart';
+import '../create_password/view.dart';
 
-class CollectionOtp{
-  final formKey=GlobalKey<FormState>();
-  final controller =TextEditingController();
-  Future<void> sendData()async{
+class OtpCubit extends Cubit<DataState> {
+  final String countryCodeOtp;
+  final String phoneNumberOtp;
 
-    final resp=await DioHelper.sendData(pass: '/api/Auth/verify-otp',data: {
-      "countryCode": "+20",
-      ///todo i need the countrycode
+  final bool isFromCreateAccount;
+  final formKey = GlobalKey<FormState>();
+  final controller = TextEditingController();
 
-      "phoneNumber": "1234567890",
-      ///todo i need the phone number
-      "otpCode":controller.text.trim()
-    });
-    if (resp.isSuccess) {
-      showMessage(resp.mag);
-    } else {
-      showMessage(resp.mag, isError: true);
+  OtpCubit({this.isFromCreateAccount=false, required this.countryCodeOtp, required this.phoneNumberOtp})
+    : super(DataState.init);
+
+  Future<void> sendData() async {
+    emit(DataState.loading);
+    try {
+      final resp = await DioHelper.sendData(
+        pass: '/api/Auth/verify-otp',
+        data: {
+          "countryCode": countryCodeOtp,
+
+          "phoneNumber": phoneNumberOtp,
+
+          "otpCode": controller.text.trim(),
+        },
+      );
+      if (resp.isSuccess) {
+        emit(DataState.success);
+
+        showMessage(resp.mag);
+        goTo(LoginView());
+      } else {
+        emit(DataState.failed);
+
+        showMessage(resp.mag, isError: true);
+      }
+    } on DioException catch (e) {
+      emit(DataState.failed);
+
+      showMessage(e.response?.data['message'] ?? 'Error', isError: true);
     }
   }
+
+
+
 }
